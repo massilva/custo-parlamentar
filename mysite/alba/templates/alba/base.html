@@ -65,11 +65,11 @@
         url : "/cms/login/",
         type : "POST",
         data : 	data,
-    cache: false,
-    processData: false,
-    contentType: false,
-      beforeSend: function() {},
-      success: function(response) {
+        cache: false,
+        processData: false,
+        contentType: false,
+        foreSend: function() {},
+        success: function(response) {
         if (response.sucess != null) {
                   error_desactive()
           window.location.replace(response.sucess);

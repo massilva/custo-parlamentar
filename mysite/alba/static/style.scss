@@ -28,8 +28,8 @@ $extra-light: 200;
 // Font-Family
 
 $Sans-Pro: 'Source Sans Pro', sans-serif;
- 
-// Espacamento 
+
+// Espacamento
 
 $no-padding: (
     padding-left: 0,
@@ -58,7 +58,7 @@ body{
 header{
     nav.navbar{
         background-color: $branco;
-        
+
         a.navbar-brand{
             color: $brand-color;
             font-size: 24px;
@@ -69,15 +69,15 @@ header{
             color: $menu-color-darker;
         }
         li.nav-item >a.nav-link{
-            
+
             color: $menu-color;
-            
+
             @media(min-width: $large){
                 font-size: 18px;
             }
         }
 
-    }    
+    }
 }
 
 @media(min-width: $medium){
@@ -89,7 +89,7 @@ header{
         margin-right: 20px;
         margin-top: 10px;
     }
-    
+
 }
 
 #principal{
@@ -99,7 +99,7 @@ header{
 }
 
 .custom-toggler-icon.navbar-toggler-icon{
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");    
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 li.item-deputado {
@@ -108,18 +108,24 @@ li.item-deputado {
     padding-top: 2px
 }
 
-li.item-deputado:hover,
-li.item-deputado.active{
+#deputados ul a{
+  width: 100%;
+  display: block;
+  padding: 5px 0px;
+}
+
+#deputados ul a:hover,
+#deputados ul a:hover{
     background-color: $aside-item-hover;
 }
 
-li.item-deputado a{
+a li.item-deputado{
     font-weight: $semi-bold;
     color: $branco;
     font-size: 14px;
 }
 
-li.item-deputado a:hover{
+#deputados ul a:hover{
     text-decoration: none;
 }
 
@@ -168,7 +174,7 @@ aside .aside-header #busca{
 #busca .form-inline input#procurar:focus{
     box-shadow: unset;
 }
-    
+
 #procurar + .fa-search{
     position: absolute;
     right: 0;
@@ -232,7 +238,7 @@ input#procurar:not(:placeholder-shown) + .fa-search{
 
 .info, .info-label{
     display: block;
-    line-height: 1.3;    
+    line-height: 1.3;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -293,7 +299,7 @@ input#procurar:not(:placeholder-shown) + .fa-search{
     float: right;
 }
 .anos .badge-pill{
-    color: $menu-color;    
+    color: $menu-color;
 }
 
 .anos .badge-pill.active{
@@ -308,7 +314,7 @@ input#procurar:not(:placeholder-shown) + .fa-search{
 }
 
 .cards-gastos{
-    margin-top: 30px;    
+    margin-top: 30px;
 }
 
 .cards-gastos .gastos-titulo h2{
@@ -335,7 +341,7 @@ input#procurar:not(:placeholder-shown) + .fa-search{
 }
 
 .gastos-titulo .badge:nth-of-type(1){
-    margin-right: 5px;    
+    margin-right: 5px;
 }
 
 .gastos-titulo .badge .fa.fa-caret-left{
@@ -416,5 +422,5 @@ input#procurar:not(:placeholder-shown) + .fa-search{
 
 
 @media(max-width: $large){
-    
+
 }

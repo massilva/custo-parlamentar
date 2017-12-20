@@ -13,78 +13,11 @@
    </div>
    <div id="deputados">
        <ul>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
-           <li class="item-deputado">
-               <a href="#">Deputado</a>
-           </li>
+         {% for deputado in deputados|dictsort:'nome' %}
+           <a href="{{ deputado.slug }}">
+               <li class="item-deputado"> {{ deputado.nome }}</li>
+           </a>
+          {% endfor %}
        </ul>
    </div>
 </aside>
