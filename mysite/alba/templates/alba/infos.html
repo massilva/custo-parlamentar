@@ -8,19 +8,35 @@
           <h2>{{ deputado_atual.nome }}</h2>
           <hr>
           <div class="infos-deputados">
+            {% if deputado_atual.email %}
               <span class="info-label">Email</span>
-              <span class="info">deputado@gov.ba.br</span>
+              <span class="info">{{ deputado_atual.email }}</span>
+            {% endif %}
+            {% if deputado_atual.telefone %}
               <span class="info-label">Telefone</span>
-              <span class="info">+55 (71) 96666-6666 </span>
+              <span class="info">{{ deputado_atual.telefone }} </span>
+            {% endif %}
+            {% if deputado_atual.endereco %}
               <span class="info-label">Gabinete</span>
-              <span class="info">Alameda dos Anjos, 666</span>
-              <span class="info-label">Gabinete</span>
-              <span class="info">Jordan graduated from Cornell University in 2004 with a Bachelor degree in computer science and a specialization in mathematics. While there, he published two articles on Code-project.</span>
-
+              <span class="info">{{ deputado_atual.endereco }}</span>
+            {% endif %}
+            {% if deputado_atual.biografia %}
+              <span class="info-label">Biografia</span>
+              <span class="info">{{ deputado_atual.biografia }}</span>
+            {% endif %}
               <span class="redes-sociais">
-                  <span class="fa fa-twitter"></span>
-                  <span class="fa fa-facebook"></span>
-                  <span class="fa fa-envelope-o"></span>
+                  {% if deputado_atual.twitter %}
+                  <a href="{{ deputado_atual.twitter }}" target="_blank"><span class="fa fa-twitter"></span></a>
+                  {% endif %}
+                  {% if deputado_atual.facebook %}
+                  <a href="{{ deputado_atual.facebook }}" target="_blank"><span class="fa fa-facebook"></span></a>
+                  {% endif %}
+                  {% if deputado_atual.instagram %}
+                  <a href="{{ deputado_atual.instagram }}" target="_blank"><span class="fa fa-instagram"></span></a>
+                  {% endif %}
+                  {% if deputado_atual.site %}
+                  <a href="{{ deputado_atual.site }}" target="_blank"><span class="fa fa-envelope-o"></span></a>
+                  {% endif %}
               </span>
 
           </div>

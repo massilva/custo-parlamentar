@@ -124,10 +124,11 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   height: 300px; }
 
 .deputado-informacoes {
-  background-color: #fff; }
+  background-color: #fff;
+  padding-bottom: 30px; }
   @media (min-width: 992px) {
     .deputado-informacoes {
-      height: 768px; } }
+      min-height: 400px; } }
 
 .deputado-informacoes h2 {
   padding-top: 30px;
@@ -160,7 +161,8 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 
 .info {
   color: #56688A;
-  font-size: 14px; }
+  font-size: 14px;
+  margin-bottom: 10px; }
 
 .deputado-informacoes .info-label:nth-child(7) {
   margin-top: 20px; }
@@ -174,7 +176,7 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   color: #56688A;
   margin-right: 10px; }
 
-.infos-deputados .fa-twitter {
+.infos-deputados .redes-sociais a:nth-child(1) {
   margin-left: 10px; }
 
 .graficos {

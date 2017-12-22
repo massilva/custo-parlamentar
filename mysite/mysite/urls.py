@@ -5,7 +5,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('alba/', include('alba.urls')),
+    path('', include('alba.urls')),
 ]
 
 if settings.DEBUG:

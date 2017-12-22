@@ -15,14 +15,20 @@ class Deputados(models.Model):
     nome = models.CharField(max_length=100)
     partido = models.IntegerField(blank=True, null=True)
     slug = models.SlugField(unique=True, max_length=25)
+    biografia = models.TextField(null=True)
+    endereco = models.CharField(max_length=200, blank=True, null=True)
+    telefone = models.CharField(max_length=400, blank=True,null=True)
+    email = models.CharField(max_length=200, blank=True,null=True)
+    twitter = models.CharField(max_length=200, blank=True,null=True)
+    facebook = models.CharField(max_length=200, blank=True,null=True)
+    site = models.CharField(max_length=200, blank=True,null=True)
+    instagram = models.CharField(max_length=200, blank=True,null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'deputados'
         verbose_name = 'deputado'
         verbose_name_plural = 'deputados'
-
-
 
 class GastoMensal(models.Model):
     mes = models.IntegerField(primary_key=True)

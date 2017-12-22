@@ -3,6 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.IndexView, name='index'),
-    re_path('(?P<slug>)', views.IndexView, name='index'),
-    # path('<deputado_id>', views.DeputadoView, name='deputado'),
+    path('<str:slug>', views.IndexView, name='index'),
 ]
