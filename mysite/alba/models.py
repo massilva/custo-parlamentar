@@ -15,7 +15,7 @@ class Deputados(models.Model):
     nome = models.CharField(max_length=100)
     partido = models.IntegerField(blank=True, null=True)
     slug = models.SlugField(unique=True, max_length=25)
-    biografia = models.TextField(null=True)
+    biografia = models.TextField(blank=True, null=True)
     endereco = models.CharField(max_length=200, blank=True, null=True)
     telefone = models.CharField(max_length=400, blank=True,null=True)
     email = models.CharField(max_length=200, blank=True,null=True)
@@ -23,6 +23,7 @@ class Deputados(models.Model):
     facebook = models.CharField(max_length=200, blank=True,null=True)
     site = models.CharField(max_length=200, blank=True,null=True)
     instagram = models.CharField(max_length=200, blank=True,null=True)
+    mandato_atual = models.BooleanField(default=True)
 
     class Meta:
         managed = True

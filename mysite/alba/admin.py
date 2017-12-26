@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Deputados, Partidos, GastoMensal
 
 class DeputadoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'partido', 'id_deputado', 'slug')
-    list_filter = ('nome', 'partido', 'id_deputado', 'slug')
+    list_display = ('nome', 'partido', 'id_deputado', 'slug', 'mandato_atual')
+    list_filter = ('nome', 'partido', 'id_deputado', 'slug', 'mandato_atual')
     search_fields = ('nome','partido')
 
     prepopulated_fields = {'slug': ('nome',)}
