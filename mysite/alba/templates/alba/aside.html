@@ -14,7 +14,7 @@
    <div id="deputados">
        <ul>
          {% for deputado in deputados|dictsort:'nome' %}
-           <a href="{{ deputado.slug }}">
+           <a href="/{{ deputado.slug }}">
                <li class="item-deputado"> {{ deputado.nome }}</li>
            </a>
           {% endfor %}
