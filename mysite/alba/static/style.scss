@@ -301,8 +301,10 @@ input#procurar:not(:placeholder-shown) + .fa-search{
     display: inline-block;
     float: right;
 }
+
 .anos .badge-pill{
     color: $menu-color;
+    cursor:pointer;
 }
 
 .anos .badge-pill.active{

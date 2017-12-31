@@ -3,16 +3,17 @@ from django.http import HttpResponse, JsonResponse
 from .models import Deputados, GastoMensal
 import time
 
-def DeputadoView(request):
-    return HttpResponse(request)
+def DadosDeputadoView(request):
+
+    return JsonResponse({'dado':request})
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
     context = {'deputados': todos_deputados}
 
-    mes_atual = time.strftime("%m")
-    ano_atual = time.strftime("%Y")
-
+    if ano == '' or mes == '':
+        mes = time.strftime("%m")
+        ano = time.strftime("%Y")
     try:
         if Deputados.objects.get(slug=slug) and slug != 'favicon.ico':
             deputado_atual = Deputados.objects.get(slug=slug)
@@ -40,7 +41,6 @@ def IndexView(request, slug='', ano='', mes=''):
         print(e)
 
     if deputado_atual != 'Alba' and ((type(month) == int and (month > 0 and month < 13)) and (type(year) == int and (year > 2007 and year < 2018))):
-        print('a')
         print('==========')
         gastos_mes = GastoMensal.objects.filter(ano=str(ano), mes=str(mes), id_deputado=id_do_deputado)
         gastos = retorna_valores_items(gastos_mes)
@@ -50,6 +50,5 @@ def IndexView(request, slug='', ano='', mes=''):
     #     gastos_mes = GastoMensal.objects.filter(ano=ano_atual, mes=mes_atual, id_deputado=id_do_deputado)
     #     gastos = retorna_valores_items(gastos_mes)
     #     print(gastos)
-
 
     return render(request, 'index.html', context)

@@ -203,7 +203,8 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   float: right; }
 
 .anos .badge-pill {
-  color: #818EA7; }
+  color: #818EA7;
+  cursor: pointer; }
 
 .anos .badge-pill.active {
   background-color: #4695D9;
