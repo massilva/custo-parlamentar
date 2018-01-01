@@ -301,4 +301,21 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 .body-card-gastos .row:nth-child(2) {
   margin-top: 50px; }
 
+.wrapper-load-graficos {
+  display: none;
+  text-align: center;
+  padding-top: 200px; }
+
+.wrapper-load-graficos span.fa-spinner {
+  font-size: 90px;
+  color: #334a6f; }
+
+.loading {
+  display: block;
+  background-color: rgba(239, 243, 246, 0.7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4; }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,5 @@
 $(function(){
 
-
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -25,12 +24,6 @@ $(function(){
   $('.anos > .badge-pill').click(function(){
     var ano = $(this).attr('id');
     var slug_deputado = window.location.href.toString().split(window.location.host)[1].replace('/', '');
-    console.log(slug_deputado);
-    console.log(ano);
-    // console.log(csrftoken);
-    // console.log($(this).attr('id'));
-    // console.log(slug_deputado);
-    // var url_req = 'dados'+slug_deputado+'/'+ano;
     var data_deputado = {'slug_deputado': slug_deputado, 'ano': ano};
     $.ajax({
       type : "POST",
@@ -39,24 +32,19 @@ $(function(){
       data: data_deputado,
       contentType: "application/x-www-form-urlencoded",
       beforeSend: function(xhr, settings) {
+        $('.wrapper-load-graficos').addClass('loading');
           if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
               xhr.setRequestHeader("X-CSRFToken", csrftoken);
           }
       },
       success: function(response){
-        console.log(response)
+        console.log(response);
+        $('.wrapper-load-graficos').removeClass('loading');
       },
       error: function(response){
-        console.log(response)
+        console.log(response);
+        $('.wrapper-load-graficos').removeClass('loading');
       }
     })
   });
 });
-
-
-// url : "/cms/login/",
-// type : "POST",
-// data : 	data,
-// cache: false,
-// processData: false,
-// contentType: false,
