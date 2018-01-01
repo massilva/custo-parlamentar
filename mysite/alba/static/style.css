@@ -123,6 +123,20 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   background-color: #fff;
   height: 300px; }
 
+.body-graficos {
+  height: 80%; }
+
+.indices {
+  width: 10%;
+  height: 100%;
+  display: block;
+  float: left; }
+
+.wrapper-itens-graficos {
+  float: left;
+  width: 90%;
+  height: 100%; }
+
 .deputado-informacoes {
   background-color: #fff;
   padding-bottom: 30px; }
@@ -189,14 +203,22 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   float: left;
   margin-left: 15px; }
 
+.graficos .verba-titulo .title-categoria {
+  float: left; }
+
 .graficos .verba-titulo .fa-caret-down {
-  float: left;
   display: inline;
   margin-left: 10px;
   margin-top: 5px; }
 
 .graficos .verba-titulo {
   display: inline-block; }
+
+.verba-titulo .dropdown-menu.show {
+  padding-right: 20px; }
+
+.dropdown-menu .dropdown-item {
+  cursor: pointer; }
 
 .anos {
   display: inline-block;

@@ -1,5 +1,19 @@
-$(function(){
 
+var d3graph = d3.select('.wrapper-itens-graficos');
+var svg = d3graph.append("svg");
+
+var width = $('.wrapper-itens-graficos').innerWidth();
+var height = $('.wrapper-itens-graficos').innerHeight();
+svg.attr("height", height).attr("width", width);
+
+for(var i = 0; i < 13; i++){
+  svg.append('div')
+      .attr('class','div-chart');
+}
+
+
+$(function(){
+  // dados ajax
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -47,4 +61,10 @@ $(function(){
       }
     })
   });
+
+  $('.dropdown-menu .dropdown-item')
+    .click(function(){
+      console.log($(this).value());
+    })
+
 });

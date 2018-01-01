@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import Deputados, GastoMensal
+from .models import Deputados, GastoMensal, Categorias
 import time
 
 def DadosDeputadoView(request):
-    # slug = request
-    print("=============")
-    print(request.POST.get('slug_deputado'))
-    print(request.POST.get('ano'))
     try:
         slug_deputado = request.POST.get('slug_deputado')
         ano = request.POST.get('ano')
@@ -18,15 +14,13 @@ def DadosDeputadoView(request):
     deputado_id = Deputados.objects.get(slug=slug_deputado).id_deputado
     dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=deputado_id)
     gastos = {}
-    print(dados)
     for gasto in dados:
         i =  str(gasto.ano)+ "%02d" % (gasto.mes,)+str(gasto.id_categoria.id_categoria)
         gastos[i] = {}
         gastos[i]['id_categoria'] =  gasto.id_categoria.id_categoria
         gastos[i]['categoria'] = gasto.id_categoria.categoria
         gastos[i]['valor'] = str(gasto.valor)
-    print(gastos)
-    return JsonResponse({'gastos':gastos})
+    return JsonResponse({'gastos' : gastos})
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
@@ -59,18 +53,19 @@ def IndexView(request, slug='', ano='', mes=''):
         month = int(mes)
         year = int(ano)
     except Exception as e:
-        #print(e)
-        pass
+        print(e)
 
     if deputado_atual != 'Alba' and ((type(month) == int and (month > 0 and month < 13)) and (type(year) == int and (year > 2007 and year < 2018))):
-        # print('==========')
         gastos_mes = GastoMensal.objects.filter(ano=str(ano), mes=str(mes), id_deputado=id_do_deputado)
         gastos = retorna_valores_items(gastos_mes)
-        # print(gastos)
 
     # elif deputado_atual == 'Alba':
     #     gastos_mes = GastoMensal.objects.filter(ano=ano_atual, mes=mes_atual, id_deputado=id_do_deputado)
     #     gastos = retorna_valores_items(gastos_mes)
     #     print(gastos)
+
+    # categorias_gastos = Categorias.objects.all()
+    # context['categorias'] = categorias_gastos
+    # print(context)
 
     return render(request, 'index.html', context)
