@@ -46,8 +46,8 @@ $(function(){
       success: function(response){
         console.log(response)
       },
-      error: function(){
-        console.log('droga')
+      error: function(response){
+        console.log(response)
       }
     })
   });

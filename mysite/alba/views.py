@@ -17,24 +17,16 @@ def DadosDeputadoView(request):
 
     deputado_id = Deputados.objects.get(slug=slug_deputado).id_deputado
     dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=deputado_id)
-    gastos = []
+    gastos = {}
+    print(dados)
     for gasto in dados:
-        gastos.append([])
-        # print(gasto.id_categoria.categoria)
-        # print(gasto.id_categoria.id_categoria)
-        # print(gasto.valor)
-        # print(gasto.mes)
-        # print(gasto.ano)
-        gastos[i].append(gasto.id_categoria.categoria)
-        gastos[i].append(gasto.id_categoria.id_categoria)
-        gastos[i].append(gasto.valor)
-        gastos[i].append(gasto.mes)
-        gastos[i].append(gasto.ano)
-
+        i =  str(gasto.ano)+ "%02d" % (gasto.mes,)+str(gasto.id_categoria.id_categoria)
+        gastos[i] = {}
+        gastos[i]['id_categoria'] =  gasto.id_categoria.id_categoria
+        gastos[i]['categoria'] = gasto.id_categoria.categoria
+        gastos[i]['valor'] = str(gasto.valor)
     print(gastos)
-    #gastos_mes = GastoMensal.objects.filter(ano=str(ano), mes=str(mes), id_deputado=id_do_deputado)
-
-    return JsonResponse({'dado':'legal'})
+    return JsonResponse({'gastos':gastos})
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
