@@ -14,13 +14,17 @@ def DadosDeputadoView(request):
     deputado_id = Deputados.objects.get(slug=slug_deputado).id_deputado
     dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=deputado_id)
     gastos = {}
+    gastos[ano] = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}}
+    categorias = ['10', '11', '12', '13', '14', '15']
+
+    for(k, v) in gastos[ano].items():
+        for cat in categorias:
+            gastos[ano][k][cat] = {}
+
     for gasto in dados:
-        i =  str(gasto.ano)+ "%02d" % (gasto.mes,)+str(gasto.id_categoria.id_categoria)
-        gastos[i] = {}
-        gastos[i]['id_categoria'] =  gasto.id_categoria.id_categoria
-        gastos[i]['categoria'] = gasto.id_categoria.categoria
-        gastos[i]['valor'] = str(gasto.valor)
-    return JsonResponse({'gastos' : gastos})
+        gastos[ano][str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
+
+    return JsonResponse(gastos)
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)

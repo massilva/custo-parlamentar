@@ -121,7 +121,7 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 
 .graficos {
   background-color: #fff;
-  height: 300px; }
+  height: 350px; }
 
 .body-graficos {
   height: 80%; }
@@ -212,10 +212,16 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   margin-top: 5px; }
 
 .graficos .verba-titulo {
-  display: inline-block; }
+  display: block; }
 
 .verba-titulo .dropdown-menu.show {
   padding-right: 20px; }
+
+.verba-titulo .dropdown .btn {
+  background: none;
+  box-shadow: none;
+  border: unset;
+  cursor: pointer; }
 
 .dropdown-menu .dropdown-item {
   cursor: pointer; }
