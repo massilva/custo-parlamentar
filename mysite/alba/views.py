@@ -3,7 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from .models import Deputados, GastoMensal, Categorias
 import time
 
-def DadosDeputadoView(request):
+
+def retorna_gastos(request, ano='', mes=''):
     try:
         slug_deputado = request.POST.get('slug_deputado')
         ano = request.POST.get('ano')
@@ -23,6 +24,30 @@ def DadosDeputadoView(request):
 
     for gasto in dados:
         gastos[ano][str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
+
+    return gastos
+
+def DadosDeputadoView(request):
+    gastos = retorna_gastos(request)
+    # try:
+    #     slug_deputado = request.POST.get('slug_deputado')
+    #     ano = request.POST.get('ano')
+    # except Exception as e:
+    #     print(e)
+    #     return HttpResponse('Não foi possível salvar informações.', status=401)
+    #
+    # deputado_id = Deputados.objects.get(slug=slug_deputado).id_deputado
+    # dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=deputado_id)
+    # gastos = {}
+    # gastos[ano] = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}}
+    # categorias = ['10', '11', '12', '13', '14', '15']
+    #
+    # for(k, v) in gastos[ano].items():
+    #     for cat in categorias:
+    #         gastos[ano][k][cat] = {}
+    #
+    # for gasto in dados:
+    #     gastos[ano][str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
 
     return JsonResponse(gastos)
 
@@ -61,7 +86,8 @@ def IndexView(request, slug='', ano='', mes=''):
 
     if deputado_atual != 'Alba' and ((type(month) == int and (month > 0 and month < 13)) and (type(year) == int and (year > 2007 and year < 2018))):
         gastos_mes = GastoMensal.objects.filter(ano=str(ano), mes=str(mes), id_deputado=id_do_deputado)
-        gastos = retorna_valores_items(gastos_mes)
+        context['gastos'] = retorna_valores_items(gastos_mes)
+
 
     # elif deputado_atual == 'Alba':
     #     gastos_mes = GastoMensal.objects.filter(ano=ano_atual, mes=mes_atual, id_deputado=id_do_deputado)
@@ -70,6 +96,6 @@ def IndexView(request, slug='', ano='', mes=''):
 
     # categorias_gastos = Categorias.objects.all()
     # context['categorias'] = categorias_gastos
-    # print(context)
+    #print(context)
 
     return render(request, 'index.html', context)

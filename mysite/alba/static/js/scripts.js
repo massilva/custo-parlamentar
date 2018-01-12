@@ -1,7 +1,12 @@
 var myScope = (function(){
 
   //canvas
-  var canvas = d3.select('.wrapper-itens-graficos').append('svg').attr('width', '100%').attr('height', '100%');
+  var canvas = d3.select('.wrapper-itens-graficos')
+    .append('svg')
+      .attr('width', '100%')
+      .attr('height', '95%')
+      .attr('style', 'margin-top: 10px');
+
   var width = $('.wrapper-itens-graficos').innerWidth();
   var height = $('.wrapper-itens-graficos').innerHeight();
   var dados_placeholder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
@@ -12,14 +17,27 @@ var myScope = (function(){
   .enter()
   .append('g')
     .attr('class', 'grupo-bar');
+    //DFECF4 claro
+    //818EA7 escuro
 
-
-  grupo_bar.selectAll('rect')
-    .data(dados_placeholder)
-    .enter()
+  grupo_bar
     .append('rect')
+      .attr('class', 'wrapper-chart')
+      .attr('fill', '#DFECF4')
       .attr('width', '25px')
-      .attr('fill', 'black')
+      .attr('height', function(){
+        return canvas_height - 15;
+      })
+      .attr('x', function(i){
+        return (i * (canvas_width / 12) - (canvas_width / 12));
+      });
+
+  grupo_bar
+    .append('rect')
+      .attr('class', 'data-chart')
+      .attr('width', '25px')
+      .attr('fill', '#818EA7')
+      .attr('rx','5')
       .attr('height', function(d){
         return d * 10;
       })
@@ -30,8 +48,8 @@ var myScope = (function(){
         return (i * (canvas_width / 12) - (canvas_width / 12));
       });
 
-  $(function(){
 
+  $(function(){
     // dados ajax
     function getCookie(name) {
       var cookieValue = null;
@@ -53,11 +71,9 @@ var myScope = (function(){
       // these HTTP methods do not require CSRF protection
       return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
-//DFECF4 claro
-//818EA7 escuro
 
     reloadGraph = function(ano){
-      var slug_deputado = window.location.href.toString().split(window.location.host)[1].replace('/', '');
+      var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
       var data_deputado = {'slug_deputado': slug_deputado, 'ano': ano};
       var resultado = $.ajax({
         type : "POST",
