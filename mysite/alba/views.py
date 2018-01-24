@@ -4,29 +4,35 @@ from .models import Deputados, GastoMensal, Categorias
 import time
 
 
-def retorna_gastos(slug_deputado, ano):
-    print(slug_deputado)
-    print(ano)
+def retorna_gastos(slug_deputado, ano, mes=''):
 
     deputado_id = Deputados.objects.get(slug=str(slug_deputado)).id_deputado
     dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=deputado_id)
     gastos = {}
-    gastos[ano] = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}}
+    gastos = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}}
+    # gastos[ano] = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}}
     categorias = ['10', '11', '12', '13', '14', '15']
 
-    for(k, v) in gastos[ano].items():
+    for(k, v) in gastos.items():
         for cat in categorias:
-            gastos[ano][k][cat] = {}
+            gastos[k][cat] = {}
 
     for gasto in dados:
-        gastos[ano][str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
+        gastos[str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
 
-    print(gastos)
+    if mes == '':
+        mes = time.strftime("%m")
 
-    return gastos
+    aluguel_imoveis = gastos[mes]['10']
+    material_expediente = gastos[mes]['11']
+    locacao_software = gastos[mes]['12']
+    consultoria = gastos[mes]['13']
+    divulgacao = gastos[mes]['14']
+    hospedagem_locomocao = gastos[mes]['15']
+    context = {'gastos': gastos, 'gasto_atual':[aluguel_imoveis, material_expediente, locacao_software, consultoria, divulgacao, hospedagem_locomocao]}
+    return context
 
 def DadosDeputadoView(request):
-
     try:
         slug_deputado = request.POST.get('slug_deputado')
         ano = request.POST.get('ano')
@@ -35,7 +41,7 @@ def DadosDeputadoView(request):
         return HttpResponse('Não foi possível salvar informações.', status=401)
     gastos = retorna_gastos(slug_deputado, ano)
 
-    return JsonResponse(gastos)
+    return JsonResponse(gastos['gastos'])
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
@@ -55,9 +61,13 @@ def IndexView(request, slug='', ano='', mes=''):
     try:
         if slug != 'favicon.ico' and Deputados.objects.get(slug=slug):
             slug_deputado = slug
-            context['gastos'] = retorna_gastos(slug_deputado, ano)
-            print(retorna_gastos(slug_deputado, ano))
+            gastos = retorna_gastos(slug_deputado, ano, mes)
+            context['gastos'] = gastos['gastos']
+
+
     except Exception as e:
         print(e)
+
+
 
     return render(request, 'index.html', context)
