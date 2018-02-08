@@ -5,48 +5,45 @@ Requisitos:
 
 - Python 3.5+
 - Virtualenv
-- Django 2.0+
+- Postgresql==9.6
 
-**º - Crie uma pasta para projetos.**
+**º - Crie uma pasta para projetos e entrar nela.**
 
-*Unix*
+`mkdir Projetos`
 
-`mkdir -p Projetos`
-
-*Windows*
-
+`cd Projetos`
 
 **º - Instalar o virtualenv**
 
-*Unix*
-
 `pip install virtualenv`
 
-*Window*
+**º - Criar a pasta para ambientes de desenvolvimento dentro da pasta Projetos e entrar nela.**
 
-**º - Criar a pasta para ambientes de desenvolvimento dentro da pasta Projetos.**
+`mkdir Environments`
 
-*Unix*
-
-`mkdir Projetos/Environments`
-
-*Windows*
+`cd Environments`
 
 **º - Dentro da pasta Environments criar um environment de Python 3.**
 
-*Unix*
-
 `virtualenv -p python3 deputados`
 
-*Windows*
+*Se a versão padrão do Python for a 3, não é preciso especificar no comando*
+
+`virtualenv deputados`
 
 **º - Ativar o environment.**
 
 *Unix*
 
-`source ~/Documentos/Projetos/deputados/bin/activate`
+`source deputados/bin/activate`
+
+*Windows*
+
+`deputados\Scripts\activate`
 
 **º - Clonar o repositório dentro da pasta de Projetos.**
+
+`cd ../../`
 
 `git clone https://gitlab.com/edelygomes/deputados.git`
 
@@ -55,3 +52,4 @@ Requisitos:
 
 `pip install -r requirements`
 
+**º - Importar banco de dados.**
