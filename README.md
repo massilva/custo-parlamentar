@@ -7,23 +7,23 @@ Requisitos:
 - Virtualenv
 - Postgresql==9.6
 
-**º - Crie uma pasta para projetos e entrar nela.**
+**1º - Crie uma pasta para projetos e entrar nela.**
 
 `mkdir Projetos`
 
 `cd Projetos`
 
-**º - Instalar o virtualenv**
+**2º - Instalar o virtualenv**
 
 `pip install virtualenv`
 
-**º - Criar a pasta para ambientes de desenvolvimento dentro da pasta Projetos e entrar nela.**
+**3º - Criar a pasta para ambientes de desenvolvimento dentro da pasta Projetos e entrar nela.**
 
 `mkdir Environments`
 
 `cd Environments`
 
-**º - Dentro da pasta Environments criar um environment de Python 3.**
+**4º - Dentro da pasta Environments criar um environment de Python 3.**
 
 `virtualenv -p python3 deputados`
 
@@ -31,7 +31,7 @@ Requisitos:
 
 `virtualenv deputados`
 
-**º - Ativar o environment.**
+**5º - Ativar o environment.**
 
 *Unix*
 
@@ -41,19 +41,19 @@ Requisitos:
 
 `deputados\Scripts\activate`
 
-**º - Clonar o repositório dentro da pasta de Projetos.**
+**6º - Clonar o repositório dentro da pasta de Projetos.**
 
 `cd ../../`
 
 `git clone https://gitlab.com/edelygomes/deputados.git`
 
 
-**º - Entrar na pasta do projeto e instalar os requirements.**
+**7º - Entrar na pasta do projeto e instalar os requirements.**
 
 `pip install -r requirements`
 
 
-**º - Entrar no psql e cria usuário 'alba' e banco de dados 'assembleia'.**
+**8º - Entrar no psql e cria usuário 'alba' e banco de dados 'assembleia'.**
 
 *Entra no cli do Postresql*
 
@@ -67,11 +67,10 @@ Requisitos:
 
 `postgres=# create database assembleia;`
 
-**º - Após sair da CLI do Posgresql, importar banco de dados.**
+**9º - Após sair da CLI do Posgresql, importar banco de dados.**
 
 `psql -h localhost -p 5432 -U postgres -f assembleia.sql assembleia`
 
-**º - Rodar as migrations.**
+**10º - Rodar as migrations.**
 
 `python manage.py migrate`
-
