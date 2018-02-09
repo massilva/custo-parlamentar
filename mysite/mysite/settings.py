@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'assembleia',
-        'USER': 'edely',
+        'USER': 'alba',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'POST': '5432'

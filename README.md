@@ -52,4 +52,26 @@ Requisitos:
 
 `pip install -r requirements`
 
-**º - Importar banco de dados.**
+
+**º - Entrar no psql e cria usuário 'alba' e banco de dados 'assembleia'.**
+
+*Entra no cli do Postresql*
+
+`psql -U postgres`
+
+*Cria usuário alba*
+
+`postgres=# create user alba with password '123456';`
+
+*Cria banco de dados assembleia*
+
+`postgres=# create database assembleia;`
+
+**º - Após sair da CLI do Posgresql, importar banco de dados.**
+
+`psql -h localhost -p 5432 -U postgres -f assembleia.sql assembleia`
+
+**º - Rodar as migrations.**
+
+`python manage.py migrate`
+

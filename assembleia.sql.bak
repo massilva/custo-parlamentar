@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: auth_group; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_group; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_group (
@@ -44,10 +44,10 @@ CREATE TABLE auth_group (
 );
 
 
-ALTER TABLE auth_group OWNER TO alba;
+ALTER TABLE auth_group OWNER TO edely;
 
 --
--- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_group_id_seq
@@ -58,17 +58,17 @@ CREATE SEQUENCE auth_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_group_id_seq OWNER TO alba;
+ALTER TABLE auth_group_id_seq OWNER TO edely;
 
 --
--- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_group_id_seq OWNED BY auth_group.id;
 
 
 --
--- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_group_permissions (
@@ -78,10 +78,10 @@ CREATE TABLE auth_group_permissions (
 );
 
 
-ALTER TABLE auth_group_permissions OWNER TO alba;
+ALTER TABLE auth_group_permissions OWNER TO edely;
 
 --
--- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_group_permissions_id_seq
@@ -92,17 +92,17 @@ CREATE SEQUENCE auth_group_permissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_group_permissions_id_seq OWNER TO alba;
+ALTER TABLE auth_group_permissions_id_seq OWNER TO edely;
 
 --
--- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_group_permissions_id_seq OWNED BY auth_group_permissions.id;
 
 
 --
--- Name: auth_permission; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_permission; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_permission (
@@ -113,10 +113,10 @@ CREATE TABLE auth_permission (
 );
 
 
-ALTER TABLE auth_permission OWNER TO alba;
+ALTER TABLE auth_permission OWNER TO edely;
 
 --
--- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_permission_id_seq
@@ -127,17 +127,17 @@ CREATE SEQUENCE auth_permission_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_permission_id_seq OWNER TO alba;
+ALTER TABLE auth_permission_id_seq OWNER TO edely;
 
 --
--- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_permission_id_seq OWNED BY auth_permission.id;
 
 
 --
--- Name: auth_user; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_user; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_user (
@@ -155,10 +155,10 @@ CREATE TABLE auth_user (
 );
 
 
-ALTER TABLE auth_user OWNER TO alba;
+ALTER TABLE auth_user OWNER TO edely;
 
 --
--- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_user_groups (
@@ -168,10 +168,10 @@ CREATE TABLE auth_user_groups (
 );
 
 
-ALTER TABLE auth_user_groups OWNER TO alba;
+ALTER TABLE auth_user_groups OWNER TO edely;
 
 --
--- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_user_groups_id_seq
@@ -182,17 +182,17 @@ CREATE SEQUENCE auth_user_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_user_groups_id_seq OWNER TO alba;
+ALTER TABLE auth_user_groups_id_seq OWNER TO edely;
 
 --
--- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_user_groups_id_seq OWNED BY auth_user_groups.id;
 
 
 --
--- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_user_id_seq
@@ -203,17 +203,17 @@ CREATE SEQUENCE auth_user_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_user_id_seq OWNER TO alba;
+ALTER TABLE auth_user_id_seq OWNER TO edely;
 
 --
--- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_user_id_seq OWNED BY auth_user.id;
 
 
 --
--- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE auth_user_user_permissions (
@@ -223,10 +223,10 @@ CREATE TABLE auth_user_user_permissions (
 );
 
 
-ALTER TABLE auth_user_user_permissions OWNER TO alba;
+ALTER TABLE auth_user_user_permissions OWNER TO edely;
 
 --
--- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE auth_user_user_permissions_id_seq
@@ -237,17 +237,17 @@ CREATE SEQUENCE auth_user_user_permissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE auth_user_user_permissions_id_seq OWNER TO alba;
+ALTER TABLE auth_user_user_permissions_id_seq OWNER TO edely;
 
 --
--- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE auth_user_user_permissions_id_seq OWNED BY auth_user_user_permissions.id;
 
 
 --
--- Name: categorias; Type: TABLE; Schema: public; Owner: alba
+-- Name: categorias; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE categorias (
@@ -256,17 +256,17 @@ CREATE TABLE categorias (
 );
 
 
-ALTER TABLE categorias OWNER TO alba;
+ALTER TABLE categorias OWNER TO edely;
 
 --
--- Name: TABLE categorias; Type: COMMENT; Schema: public; Owner: alba
+-- Name: TABLE categorias; Type: COMMENT; Schema: public; Owner: edely
 --
 
 COMMENT ON TABLE categorias IS 'Tabela das categorias.';
 
 
 --
--- Name: deputados; Type: TABLE; Schema: public; Owner: alba
+-- Name: deputados; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE deputados (
@@ -286,10 +286,10 @@ CREATE TABLE deputados (
 );
 
 
-ALTER TABLE deputados OWNER TO alba;
+ALTER TABLE deputados OWNER TO edely;
 
 --
--- Name: deputados_nome_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: deputados_nome_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE deputados_nome_seq
@@ -300,17 +300,17 @@ CREATE SEQUENCE deputados_nome_seq
     CACHE 1;
 
 
-ALTER TABLE deputados_nome_seq OWNER TO alba;
+ALTER TABLE deputados_nome_seq OWNER TO edely;
 
 --
--- Name: deputados_nome_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: deputados_nome_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE deputados_nome_seq OWNED BY deputados.nome;
 
 
 --
--- Name: django_admin_log; Type: TABLE; Schema: public; Owner: alba
+-- Name: django_admin_log; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE django_admin_log (
@@ -326,10 +326,10 @@ CREATE TABLE django_admin_log (
 );
 
 
-ALTER TABLE django_admin_log OWNER TO alba;
+ALTER TABLE django_admin_log OWNER TO edely;
 
 --
--- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE django_admin_log_id_seq
@@ -340,17 +340,17 @@ CREATE SEQUENCE django_admin_log_id_seq
     CACHE 1;
 
 
-ALTER TABLE django_admin_log_id_seq OWNER TO alba;
+ALTER TABLE django_admin_log_id_seq OWNER TO edely;
 
 --
--- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE django_admin_log_id_seq OWNED BY django_admin_log.id;
 
 
 --
--- Name: django_content_type; Type: TABLE; Schema: public; Owner: alba
+-- Name: django_content_type; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE django_content_type (
@@ -360,10 +360,10 @@ CREATE TABLE django_content_type (
 );
 
 
-ALTER TABLE django_content_type OWNER TO alba;
+ALTER TABLE django_content_type OWNER TO edely;
 
 --
--- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE django_content_type_id_seq
@@ -374,17 +374,17 @@ CREATE SEQUENCE django_content_type_id_seq
     CACHE 1;
 
 
-ALTER TABLE django_content_type_id_seq OWNER TO alba;
+ALTER TABLE django_content_type_id_seq OWNER TO edely;
 
 --
--- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE django_content_type_id_seq OWNED BY django_content_type.id;
 
 
 --
--- Name: django_migrations; Type: TABLE; Schema: public; Owner: alba
+-- Name: django_migrations; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE django_migrations (
@@ -395,10 +395,10 @@ CREATE TABLE django_migrations (
 );
 
 
-ALTER TABLE django_migrations OWNER TO alba;
+ALTER TABLE django_migrations OWNER TO edely;
 
 --
--- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: alba
+-- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: edely
 --
 
 CREATE SEQUENCE django_migrations_id_seq
@@ -409,17 +409,17 @@ CREATE SEQUENCE django_migrations_id_seq
     CACHE 1;
 
 
-ALTER TABLE django_migrations_id_seq OWNER TO alba;
+ALTER TABLE django_migrations_id_seq OWNER TO edely;
 
 --
--- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: alba
+-- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edely
 --
 
 ALTER SEQUENCE django_migrations_id_seq OWNED BY django_migrations.id;
 
 
 --
--- Name: django_session; Type: TABLE; Schema: public; Owner: alba
+-- Name: django_session; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE django_session (
@@ -429,10 +429,10 @@ CREATE TABLE django_session (
 );
 
 
-ALTER TABLE django_session OWNER TO alba;
+ALTER TABLE django_session OWNER TO edely;
 
 --
--- Name: gasto_mensal; Type: TABLE; Schema: public; Owner: alba
+-- Name: gasto_mensal; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE gasto_mensal (
@@ -444,17 +444,17 @@ CREATE TABLE gasto_mensal (
 );
 
 
-ALTER TABLE gasto_mensal OWNER TO alba;
+ALTER TABLE gasto_mensal OWNER TO edely;
 
 --
--- Name: TABLE gasto_mensal; Type: COMMENT; Schema: public; Owner: alba
+-- Name: TABLE gasto_mensal; Type: COMMENT; Schema: public; Owner: edely
 --
 
 COMMENT ON TABLE gasto_mensal IS 'Tabela dos gastos mensais.';
 
 
 --
--- Name: partidos; Type: TABLE; Schema: public; Owner: alba
+-- Name: partidos; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE partidos (
@@ -465,17 +465,17 @@ CREATE TABLE partidos (
 );
 
 
-ALTER TABLE partidos OWNER TO alba;
+ALTER TABLE partidos OWNER TO edely;
 
 --
--- Name: TABLE partidos; Type: COMMENT; Schema: public; Owner: alba
+-- Name: TABLE partidos; Type: COMMENT; Schema: public; Owner: edely
 --
 
 COMMENT ON TABLE partidos IS 'Tabela dos partidos.';
 
 
 --
--- Name: teste; Type: TABLE; Schema: public; Owner: alba
+-- Name: teste; Type: TABLE; Schema: public; Owner: edely
 --
 
 CREATE TABLE teste (
@@ -484,80 +484,80 @@ CREATE TABLE teste (
 );
 
 
-ALTER TABLE teste OWNER TO alba;
+ALTER TABLE teste OWNER TO edely;
 
 --
--- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group ALTER COLUMN id SET DEFAULT nextval('auth_group_id_seq'::regclass);
 
 
 --
--- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group_permissions ALTER COLUMN id SET DEFAULT nextval('auth_group_permissions_id_seq'::regclass);
 
 
 --
--- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_permission ALTER COLUMN id SET DEFAULT nextval('auth_permission_id_seq'::regclass);
 
 
 --
--- Name: auth_user id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_user id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user ALTER COLUMN id SET DEFAULT nextval('auth_user_id_seq'::regclass);
 
 
 --
--- Name: auth_user_groups id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_user_groups id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_groups ALTER COLUMN id SET DEFAULT nextval('auth_user_groups_id_seq'::regclass);
 
 
 --
--- Name: auth_user_user_permissions id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_user_permissions ALTER COLUMN id SET DEFAULT nextval('auth_user_user_permissions_id_seq'::regclass);
 
 
 --
--- Name: deputados nome; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: deputados nome; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY deputados ALTER COLUMN nome SET DEFAULT nextval('deputados_nome_seq'::regclass);
 
 
 --
--- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_admin_log ALTER COLUMN id SET DEFAULT nextval('django_admin_log_id_seq'::regclass);
 
 
 --
--- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_content_type ALTER COLUMN id SET DEFAULT nextval('django_content_type_id_seq'::regclass);
 
 
 --
--- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: alba
+-- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_migrations ALTER COLUMN id SET DEFAULT nextval('django_migrations_id_seq'::regclass);
 
 
 --
--- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_group (id, name) FROM stdin;
@@ -565,14 +565,14 @@ COPY auth_group (id, name) FROM stdin;
 
 
 --
--- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_group_id_seq', 1, false);
 
 
 --
--- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_group_permissions (id, group_id, permission_id) FROM stdin;
@@ -580,14 +580,14 @@ COPY auth_group_permissions (id, group_id, permission_id) FROM stdin;
 
 
 --
--- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_group_permissions_id_seq', 1, false);
 
 
 --
--- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
@@ -631,23 +631,23 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 
 
 --
--- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_permission_id_seq', 36, true);
 
 
 --
--- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$100000$j2Ocp1NUzlWK$gIxghwn8vO70EOXhn+XVvFGNomkdADiFTx4tQBw4uqo=	2017-12-20 10:04:02.070114-03	t	alba			alba.gomes@gmail.com	t	t	2017-12-20 10:03:27.948424-03
+1	pbkdf2_sha256$100000$j2Ocp1NUzlWK$gIxghwn8vO70EOXhn+XVvFGNomkdADiFTx4tQBw4uqo=	2017-12-20 10:04:02.070114-03	t	edely			edely.gomes@gmail.com	t	t	2017-12-20 10:03:27.948424-03
 \.
 
 
 --
--- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_user_groups (id, user_id, group_id) FROM stdin;
@@ -655,21 +655,21 @@ COPY auth_user_groups (id, user_id, group_id) FROM stdin;
 
 
 --
--- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_user_groups_id_seq', 1, false);
 
 
 --
--- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_user_id_seq', 1, true);
 
 
 --
--- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
@@ -677,14 +677,14 @@ COPY auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
 
 
 --
--- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('auth_user_user_permissions_id_seq', 1, false);
 
 
 --
--- Data for Name: categorias; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: categorias; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY categorias (id_categoria, categoria) FROM stdin;
@@ -698,7 +698,7 @@ COPY categorias (id_categoria, categoria) FROM stdin;
 
 
 --
--- Data for Name: deputados; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: deputados; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY deputados (id_deputado, nome, partido, slug, biografia, email, endereco, facebook, telefone, twitter, site, instagram, mandato_atual) FROM stdin;
@@ -775,14 +775,14 @@ COPY deputados (id_deputado, nome, partido, slug, biografia, email, endereco, fa
 
 
 --
--- Name: deputados_nome_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: deputados_nome_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('deputados_nome_seq', 1, false);
 
 
 --
--- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
@@ -965,14 +965,14 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 
 
 --
--- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('django_admin_log_id_seq', 175, true);
 
 
 --
--- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY django_content_type (id, app_label, model) FROM stdin;
@@ -992,14 +992,14 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 
 
 --
--- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('django_content_type_id_seq', 12, true);
 
 
 --
--- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY django_migrations (id, app, name, applied) FROM stdin;
@@ -1033,14 +1033,14 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 
 
 --
--- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: alba
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edely
 --
 
 SELECT pg_catalog.setval('django_migrations_id_seq', 26, true);
 
 
 --
--- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY django_session (session_key, session_data, expire_date) FROM stdin;
@@ -1049,7 +1049,7 @@ COPY django_session (session_key, session_data, expire_date) FROM stdin;
 
 
 --
--- Data for Name: gasto_mensal; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: gasto_mensal; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY gasto_mensal (mes, ano, id_categoria, valor, id_deputado) FROM stdin;
@@ -55705,7 +55705,7 @@ COPY gasto_mensal (mes, ano, id_categoria, valor, id_deputado) FROM stdin;
 
 
 --
--- Data for Name: partidos; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: partidos; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY partidos (id_deputado, nome_partido, sigla, numero_legenda) FROM stdin;
@@ -55713,7 +55713,7 @@ COPY partidos (id_deputado, nome_partido, sigla, numero_legenda) FROM stdin;
 
 
 --
--- Data for Name: teste; Type: TABLE DATA; Schema: public; Owner: alba
+-- Data for Name: teste; Type: TABLE DATA; Schema: public; Owner: edely
 --
 
 COPY teste (cat_id, texto) FROM stdin;
@@ -55724,7 +55724,7 @@ COPY teste (cat_id, texto) FROM stdin;
 
 
 --
--- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group
@@ -55732,7 +55732,7 @@ ALTER TABLE ONLY auth_group
 
 
 --
--- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group_permissions
@@ -55740,7 +55740,7 @@ ALTER TABLE ONLY auth_group_permissions
 
 
 --
--- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group_permissions
@@ -55748,7 +55748,7 @@ ALTER TABLE ONLY auth_group_permissions
 
 
 --
--- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group
@@ -55756,7 +55756,7 @@ ALTER TABLE ONLY auth_group
 
 
 --
--- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_permission
@@ -55764,7 +55764,7 @@ ALTER TABLE ONLY auth_permission
 
 
 --
--- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_permission
@@ -55772,7 +55772,7 @@ ALTER TABLE ONLY auth_permission
 
 
 --
--- Name: auth_user_groups auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_groups auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_groups
@@ -55780,7 +55780,7 @@ ALTER TABLE ONLY auth_user_groups
 
 
 --
--- Name: auth_user_groups auth_user_groups_user_id_group_id_94350c0c_uniq; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_groups auth_user_groups_user_id_group_id_94350c0c_uniq; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_groups
@@ -55788,7 +55788,7 @@ ALTER TABLE ONLY auth_user_groups
 
 
 --
--- Name: auth_user auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user
@@ -55796,7 +55796,7 @@ ALTER TABLE ONLY auth_user
 
 
 --
--- Name: auth_user_user_permissions auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_user_permissions
@@ -55804,7 +55804,7 @@ ALTER TABLE ONLY auth_user_user_permissions
 
 
 --
--- Name: auth_user_user_permissions auth_user_user_permissions_user_id_permission_id_14a6b632_uniq; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions auth_user_user_permissions_user_id_permission_id_14a6b632_uniq; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_user_permissions
@@ -55812,7 +55812,7 @@ ALTER TABLE ONLY auth_user_user_permissions
 
 
 --
--- Name: auth_user auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user
@@ -55820,7 +55820,7 @@ ALTER TABLE ONLY auth_user
 
 
 --
--- Name: categorias categorias_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: categorias categorias_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY categorias
@@ -55828,7 +55828,7 @@ ALTER TABLE ONLY categorias
 
 
 --
--- Name: deputados deputados_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: deputados deputados_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY deputados
@@ -55836,7 +55836,7 @@ ALTER TABLE ONLY deputados
 
 
 --
--- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_admin_log
@@ -55844,7 +55844,7 @@ ALTER TABLE ONLY django_admin_log
 
 
 --
--- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_content_type
@@ -55852,7 +55852,7 @@ ALTER TABLE ONLY django_content_type
 
 
 --
--- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_content_type
@@ -55860,7 +55860,7 @@ ALTER TABLE ONLY django_content_type
 
 
 --
--- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_migrations
@@ -55868,7 +55868,7 @@ ALTER TABLE ONLY django_migrations
 
 
 --
--- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_session
@@ -55876,7 +55876,7 @@ ALTER TABLE ONLY django_session
 
 
 --
--- Name: gasto_mensal gasto_mensal_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: gasto_mensal gasto_mensal_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY gasto_mensal
@@ -55884,7 +55884,7 @@ ALTER TABLE ONLY gasto_mensal
 
 
 --
--- Name: partidos partidos_pkey; Type: CONSTRAINT; Schema: public; Owner: alba
+-- Name: partidos partidos_pkey; Type: CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY partidos
@@ -55892,98 +55892,98 @@ ALTER TABLE ONLY partidos
 
 
 --
--- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_group_name_a6ea08ec_like ON auth_group USING btree (name varchar_pattern_ops);
 
 
 --
--- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON auth_group_permissions USING btree (group_id);
 
 
 --
--- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON auth_group_permissions USING btree (permission_id);
 
 
 --
--- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_permission_content_type_id_2f476e4b ON auth_permission USING btree (content_type_id);
 
 
 --
--- Name: auth_user_groups_group_id_97559544; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_user_groups_group_id_97559544; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_user_groups_group_id_97559544 ON auth_user_groups USING btree (group_id);
 
 
 --
--- Name: auth_user_groups_user_id_6a12ed8b; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_user_groups_user_id_6a12ed8b; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_user_groups_user_id_6a12ed8b ON auth_user_groups USING btree (user_id);
 
 
 --
--- Name: auth_user_user_permissions_permission_id_1fbb5f2c; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions_permission_id_1fbb5f2c; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_user_user_permissions_permission_id_1fbb5f2c ON auth_user_user_permissions USING btree (permission_id);
 
 
 --
--- Name: auth_user_user_permissions_user_id_a95ead1b; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions_user_id_a95ead1b; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_user_user_permissions_user_id_a95ead1b ON auth_user_user_permissions USING btree (user_id);
 
 
 --
--- Name: auth_user_username_6821ab7c_like; Type: INDEX; Schema: public; Owner: alba
+-- Name: auth_user_username_6821ab7c_like; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX auth_user_username_6821ab7c_like ON auth_user USING btree (username varchar_pattern_ops);
 
 
 --
--- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: alba
+-- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON django_admin_log USING btree (content_type_id);
 
 
 --
--- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: alba
+-- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX django_admin_log_user_id_c564eba6 ON django_admin_log USING btree (user_id);
 
 
 --
--- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: alba
+-- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX django_session_expire_date_a5c62663 ON django_session USING btree (expire_date);
 
 
 --
--- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: alba
+-- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: edely
 --
 
 CREATE INDEX django_session_session_key_c0390e0f_like ON django_session USING btree (session_key varchar_pattern_ops);
 
 
 --
--- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group_permissions
@@ -55991,7 +55991,7 @@ ALTER TABLE ONLY auth_group_permissions
 
 
 --
--- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_group_permissions
@@ -55999,7 +55999,7 @@ ALTER TABLE ONLY auth_group_permissions
 
 
 --
--- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_permission
@@ -56007,7 +56007,7 @@ ALTER TABLE ONLY auth_permission
 
 
 --
--- Name: auth_user_groups auth_user_groups_group_id_97559544_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_groups auth_user_groups_group_id_97559544_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_groups
@@ -56015,7 +56015,7 @@ ALTER TABLE ONLY auth_user_groups
 
 
 --
--- Name: auth_user_groups auth_user_groups_user_id_6a12ed8b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_groups auth_user_groups_user_id_6a12ed8b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_groups
@@ -56023,7 +56023,7 @@ ALTER TABLE ONLY auth_user_groups
 
 
 --
--- Name: auth_user_user_permissions auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_user_permissions
@@ -56031,7 +56031,7 @@ ALTER TABLE ONLY auth_user_user_permissions
 
 
 --
--- Name: auth_user_user_permissions auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: auth_user_user_permissions auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY auth_user_user_permissions
@@ -56039,7 +56039,7 @@ ALTER TABLE ONLY auth_user_user_permissions
 
 
 --
--- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_admin_log
@@ -56047,7 +56047,7 @@ ALTER TABLE ONLY django_admin_log
 
 
 --
--- Name: django_admin_log django_admin_log_user_id_c564eba6_fk; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: django_admin_log django_admin_log_user_id_c564eba6_fk; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY django_admin_log
@@ -56055,7 +56055,7 @@ ALTER TABLE ONLY django_admin_log
 
 
 --
--- Name: gasto_mensal gasto_mensal_id_categoria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: alba
+-- Name: gasto_mensal gasto_mensal_id_categoria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edely
 --
 
 ALTER TABLE ONLY gasto_mensal
