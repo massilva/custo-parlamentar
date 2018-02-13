@@ -7,7 +7,7 @@ Requisitos:
 - Virtualenv
 - Postgresql==9.6
 
-**1º - Crie uma pasta para projetos e entrar nela.**
+**1º - Criar uma pasta para projetos e entrar nela.**
 
 `mkdir Projetos`
 

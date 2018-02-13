@@ -23,6 +23,20 @@ def retorna_gastos(slug_deputado, ano, mes=''):
     if mes == '':
         mes = time.strftime("%m")
 
+    print('____________')
+    print(ano)
+
+    if ano == '':
+        print('==========')
+        ano_mais_recente = GastoMensal.objects.all()
+        print(ano_mais_recente)
+        ano = time.strftime("%Y")
+        
+
+    print('a')
+    print(gastos[mes])
+
+
     aluguel_imoveis = gastos[mes]['10']
     material_expediente = gastos[mes]['11']
     locacao_software = gastos[mes]['12']
@@ -37,6 +51,7 @@ def DadosDeputadoView(request):
         slug_deputado = request.POST.get('slug_deputado')
         ano = request.POST.get('ano')
     except Exception as e:
+        print('aca')
         print(e)
         return HttpResponse('Não foi possível salvar informações.', status=401)
     gastos = retorna_gastos(slug_deputado, ano)
@@ -47,9 +62,12 @@ def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
     context = {'deputados': todos_deputados}
 
-    if ano == '' or mes == '':
-        mes = time.strftime("%m")
-        ano = time.strftime("%Y")
+    #if ano == '' or mes == '':
+    #    mes = time.strftime("%m")
+    #    ano = time.strftime("%Y")
+
+    print(type(ano))
+    print(type(mes))
     try:
         if slug != 'favicon.ico' and Deputados.objects.get(slug=slug):
             deputado_atual = Deputados.objects.get(slug=slug)
@@ -66,8 +84,7 @@ def IndexView(request, slug='', ano='', mes=''):
 
 
     except Exception as e:
+        print('aqui')
         print(e)
-
-
 
     return render(request, 'index.html', context)
