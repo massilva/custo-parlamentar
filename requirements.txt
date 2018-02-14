@@ -3,3 +3,4 @@ pillow
 django-debug-toolbar
 psycopg2
 slugify
+gunicorn
