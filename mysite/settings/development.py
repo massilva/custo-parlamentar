@@ -18,9 +18,12 @@ DATABASES = {
 DEBUG = False
 
 INTERNAL_IPS = ['127.0.0.1']    
+if DEBUG == True:
+    MIDDLEWARE +=(
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
 
 MIDDLEWARE +=(
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
