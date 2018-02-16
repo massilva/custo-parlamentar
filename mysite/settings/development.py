@@ -15,9 +15,9 @@ DATABASES = {
     }
 }    
 
-DEBUG = True
+DEBUG = False
 
-INTERNAL_IPS = ['127.0.0.1']    
+#INTERNAL_IPS = ['127.0.0.1']    
 if DEBUG == True:
     MIDDLEWARE +=(
         'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -27,10 +27,10 @@ MIDDLEWARE +=(
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
+print('================')
 print(MIDDLEWARE)
 
 ALLOWED_HOSTS = [os.environ.get('PRIMARY_HOST', '')]
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
