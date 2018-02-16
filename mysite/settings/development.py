@@ -27,6 +27,8 @@ MIDDLEWARE +=(
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
+print(MIDDLEWARE)
+
 ALLOWED_HOSTS = [os.environ.get('PRIMARY_HOST', '')]
 
 
