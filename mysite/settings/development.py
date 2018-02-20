@@ -27,10 +27,6 @@ MIDDLEWARE +=(
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
-
-print('================')
-print(MIDDLEWARE)
-
 ALLOWED_HOSTS = [os.environ.get('PRIMARY_HOST', '')]
 
 # Static files (CSS, JavaScript, Images)
