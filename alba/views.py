@@ -2,6 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import Deputados, GastoMensal, Categorias
 import time
+import os
+
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+DISABLE_COLLECTSTATIC = os.environ.get('DISABLE_COLLECTSTATIC', '')
+DJANGO_SETTINGS_MODULE = os.environ.get('DJANGO_SETTINGS_MODULE', '')
+print(SECRET_KEY)
+print(DISABLE_COLLECTSTATIC)
+print(DJANGO_SETTINGS_MODULE)
 
 
 def retorna_gastos(slug_deputado, ano, mes=''):
