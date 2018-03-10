@@ -1,9 +1,5 @@
 from .base import *
 
-INSTALLED_APPS += (
-        'debug_toolbar',
-    )
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6inbnsa4z7zfl^1e7af1+w4pnri+rufkf!mr7tug)vtyl!oi43'
 
@@ -17,6 +13,10 @@ INTERNAL_IPS = ['127.0.0.1']
 
 MIDDLEWARE +=(
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+INSTALLED_APPS += (
+    'debug_toolbar',
 )
 
 # Database
