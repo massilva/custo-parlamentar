@@ -108,7 +108,7 @@ var myScope = (function(){
     // Categorias
     $('.dropdown-menu .dropdown-item')
       .click(function(){
-        $('.categoria-atual').text($(this).find('.title-categoria').text());
+        $('.categoria-atual').text($(this).find('.dropdown-menu__item__title').text());
       })
   });
 

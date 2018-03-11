@@ -143,7 +143,7 @@ aside .aside-header{
     width: 100%;
 }
 
-aside .aside-header span.title-deputados{
+aside .aside-header span.aside-header__title{
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -296,7 +296,7 @@ input#procurar:not(:placeholder-shown) + .fa-search{
     display: block;
 }
 
-.header-main__wrap__graficos .verba-titulo h2{
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el h2{
     color: $brand-color;
     font-size: 20px;
     font-weight: $regular;
@@ -304,26 +304,26 @@ input#procurar:not(:placeholder-shown) + .fa-search{
     margin-left: 15px;
 }
 
-.header-main__wrap__graficos .verba-titulo .title-categoria{
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el .dropdown-menu__item__title{
     float: left;
 }
 
-.header-main__wrap__graficos .verba-titulo .fa-caret-down{
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el .fa-caret-down{
     // float: left;
     display: inline;
     margin-left: 10px;
     margin-top: 5px;
 }
 
-.header-main__wrap__graficos .verba-titulo{
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el{
     display: block;
 }
 
-.verba-titulo .dropdown-menu.show{
+.header-main__wrap__graficos__header__el .dropdown-menu.show{
     padding-right: 20px;
 }
 
-.verba-titulo .dropdown .btn{
+.header-main__wrap__graficos__header__el .dropdown .btn{
     background: none;
     box-shadow: none;
     border: unset;

@@ -39,7 +39,7 @@ header nav.navbar {
 .custom-toggler-icon.navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
 
-li.item-deputado {
+.deputados__item {
   padding-left: 15px;
   padding-bottom: 3px;
   padding-top: 2px; }
@@ -53,7 +53,7 @@ li.item-deputado {
 #deputados ul a:hover {
   background-color: #313D4F; }
 
-a li.item-deputado {
+a .deputados__item {
   font-weight: 600;
   color: #fff;
   font-size: 14px; }
@@ -72,7 +72,7 @@ aside ul {
 aside .aside-header {
   width: 100%; }
 
-aside .aside-header span.title-deputados {
+aside .aside-header span.aside-header__title {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -119,7 +119,7 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   padding-top: 20px;
   width: 100%; }
 
-.graficos {
+.header-main__wrap__graficos {
   background-color: #fff;
   height: 350px; }
 
@@ -193,31 +193,31 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 .infos-deputados .redes-sociais a:nth-child(1) {
   margin-left: 10px; }
 
-.graficos {
+.header-main__wrap__graficos {
   display: block; }
 
-.graficos .verba-titulo h2 {
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el h2 {
   color: #202634;
   font-size: 20px;
   font-weight: 400;
   float: left;
   margin-left: 15px; }
 
-.graficos .verba-titulo .title-categoria {
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el .dropdown-menu__item__title {
   float: left; }
 
-.graficos .verba-titulo .fa-caret-down {
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el .fa-caret-down {
   display: inline;
   margin-left: 10px;
   margin-top: 5px; }
 
-.graficos .verba-titulo {
+.header-main__wrap__graficos .header-main__wrap__graficos__header__el {
   display: block; }
 
-.verba-titulo .dropdown-menu.show {
+.header-main__wrap__graficos__header__el .dropdown-menu.show {
   padding-right: 20px; }
 
-.verba-titulo .dropdown .btn {
+.header-main__wrap__graficos__header__el .dropdown .btn {
   background: none;
   box-shadow: none;
   border: unset;
@@ -238,7 +238,7 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   background-color: #4695D9;
   color: #fff; }
 
-.header-graficos {
+.header-main__wrap__graficos__header {
   display: block;
   width: 100%;
   padding-top: 10px; }
@@ -329,12 +329,12 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 .body-card-gastos .row:nth-child(2) {
   margin-top: 50px; }
 
-.wrapper-load-graficos {
+.header-main__wrap__load {
   display: none;
   text-align: center;
   padding-top: 200px; }
 
-.wrapper-load-graficos span.fa-spinner {
+.header-main__wrap__load span.fa-spinner {
   font-size: 90px;
   color: #334a6f; }
 
