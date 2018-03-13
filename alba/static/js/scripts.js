@@ -122,3 +122,21 @@ var myScope = (function(){
     var cat_15;
   }
 })();
+
+//busca dinamica deputados
+var listaDeputados = (function(){
+  var deputados = $('.deputados__item');
+  var search = $("#procurar")[0];
+
+  $('#procurar').on('input', function(){
+    $(deputados).parent().css('display', 'none');
+    var exp = new RegExp(search.value, 'i');
+    for(var j = 0; j < deputados.length; j++){
+      var depWrapper = deputados[j];
+      var dep = $(depWrapper).text();
+      if(dep.search(exp) != -1){
+          $(depWrapper).parent().css('display', 'block');
+      }
+    }
+  });
+})();
