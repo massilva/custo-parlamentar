@@ -1,23 +1,28 @@
-<aside class="col-sm-1 col-lg-2">
-   <div class="aside-header">
-       <span class="aside-header__title">DEPUTADOS</span>
-       <div id="busca">
-           <form class="form-inline">
-            <div class="input-group">
-             <input class="form-control" id="procurar" type="search" placeholder="Procurar" aria-label="Search">
-             <i class="fa fa-search" aria-hidden="true"></i>
-<!--               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-             </div>
-           </form>
-       </div>
-   </div>
-   <div id="deputados">
-       <ul>
-         {% for deputado in deputados|dictsort:'nome' %}
-           <a href="/{{ deputado.slug }}">
-               <li class="deputados__item"> {{ deputado.nome }}</li>
-           </a>
-          {% endfor %}
-       </ul>
-   </div>
+<aside class="col-sm-1 col-lg-2 aside-desktop">
+    <div class="aside-logo">
+        <h1 class="aside-logo__el">
+            <a href="#">INTERFACE</a>
+        </h1>
+    </div>
+    <div class="aside-header">
+        <span class="aside-header__title">DEPUTADOS</span>
+        <div id="busca">
+            <form class="form-inline">
+                <div class="input-group">
+                <input class="form-control" id="procurar" type="search" placeholder="Procurar" aria-label="Search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+    <!--               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="deputados">
+        <ul>
+            {% for deputado in deputados|dictsort:'nome' %}
+            <a href="/{{ deputado.slug }}">
+                <li class="deputados__item"> {{ deputado.nome }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
 </aside>

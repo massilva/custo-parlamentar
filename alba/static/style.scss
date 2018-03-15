@@ -80,6 +80,37 @@ header {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.2)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+header nav.navbar.deputados-mobile{
+    display: none;
+    background-color: #1D2532;
+    flex-direction: row-reverse;
+    @media(max-width:767px) {
+        display: flex;
+    }
+}
+
+input[name=search-mobile]{
+    background-color: transparent;
+    border: unset;
+    border-bottom: solid 1px #5B6779;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    color: #fff;
+}
+
+.deputados-mobile  .navbar-toggler {
+    color: rgba(250,250,250,.5);
+    border: 1px solid rgba(250, 250, 250, 0.8);
+}
+
+.deputados-mobile .custom-toggler-icon.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(250, 250, 250, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 .deputados__item {
     padding-left: 15px;
     padding-bottom: 3px;
@@ -313,6 +344,23 @@ input#procurar:not(:placeholder-shown)+.fa-search {
 .anos {
     display: inline-block;
     float: right;
+    @media(max-width: 767px){
+        width: 40px;
+        height: 35px;
+        margin-right: 5px;
+    }
+}
+
+.anos-line{
+    display: none;
+    width: 70%;
+    margin-bottom: 5px;
+    height: 2px;
+    background-color: rgba(0,0,0,.5);
+
+    @media(max-width: 767px){
+        display:block;
+    }
 }
 
 .anos .badge-pill {
@@ -480,3 +528,38 @@ input#procurar:not(:placeholder-shown)+.fa-search {
     position: absolute;
     bottom: 0;
 }
+
+.aside-logo__el{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.aside-logo__el a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.aside-desktop{
+    @media(max-width: 767px){
+        display: none;
+    }
+}
+
+.header-main__wrap__info__deputados{
+    @media(max-width: 767px){
+        float: left;
+    }
+}
+
+.header-main{
+    @media(max-width:767px){
+        flex-direction: column-reverse;
+    }
+}
+
+.header-main__wrap__info__deputados{
+    @media(max-width: 767px){
+        margin-bottom: 10px;
+    }
+}
+
