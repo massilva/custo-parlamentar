@@ -2,14 +2,14 @@
     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarMobDeputado" aria-controls="navbarMobDeputado" aria-expanded="false" aria-label="Toggle navigation">
         <span class="custom-toggler-icon navbar-toggler-icon"></span>
     </button>
-    <input type="text" name="search-mobile" placeholder="Deputados">
+    <input type="text" id="searchMobile" placeholder="Deputados">
     <div class="collapse navbar-collapse" id="navbarMobDeputado">
         <ul class="navbar-nav ml-auto">
-                {% for deputado in deputados|dictsort:'nome' %}
-                <a class="nav-item" href="/{{ deputado.slug }}">
-                    <li class="deputados__item"> {{ deputado.nome }}</li>
-                </a>
-                {% endfor %}              
+            {% for deputado in deputados|dictsort:'nome' %}
+            <a class="nav-item" href="/{{ deputado.slug }}">
+                <li class="deputados__item__mobile"> {{ deputado.nome }}</li>
+            </a>
+            {% endfor %}              
         </ul>
 
     </div>

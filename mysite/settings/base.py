@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'alba',
+    'pipeline'
 ]
 
 
@@ -83,10 +84,45 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+PIPELINE = {
+    'PIPELINE_ENABLED': True,
+    'STYLESHEETS': {
+        'colors': {
+            'source_filenames': (
+              'style.css'
+            ),
+            'output_filename': 'css/colors.css',
+            'extra_context': {
+                'media': 'screen,projection',
+            },
+        },
+    },
+    'JAVASCRIPT': {
+        'stats': {
+            'source_filenames': (
+              'js/jquery-3.2.1.min.js',
+              'js/popper.min.js',
+              'js/bootstrap.min.js',
+              'js/scripts.js'
+            ),
+            'output_filename': 'js/stats.js',
+        }
+    }
+}
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #MEDIA_ROOT = '/media/'
 #MEDIA_URL = ''
+
 
 django_heroku.settings(locals())

@@ -68,7 +68,7 @@ header nav.navbar.deputados-mobile {
   }
 }
 
-input[name=search-mobile] {
+#searchMobile {
   background-color: transparent;
   border: unset;
   border-bottom: solid 1px #5B6779;
@@ -96,10 +96,16 @@ input[name=search-mobile] {
   padding-top: 2px;
 }
 
+#navbarMobDeputado ul a,
 #deputados ul a {
   width: 100%;
   display: block;
   padding: 5px 0px;
+}
+
+#navbarMobDeputado.show {
+  height: 100px;
+  overflow-y: scroll;
 }
 
 #deputados ul a:hover,
@@ -107,7 +113,8 @@ input[name=search-mobile] {
   background-color: #313D4F;
 }
 
-a .deputados__item {
+a .deputados__item,
+a .deputados__item__mobile {
   font-weight: 600;
   color: #fff;
   font-size: 14px;

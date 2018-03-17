@@ -123,12 +123,22 @@ var myScope = (function(){
   }
 })();
 
-//busca dinamica deputados
-var listaDeputados = (function(){
-  var deputados = $('.deputados__item');
-  var search = $("#procurar")[0];
+//desktop
+var depu = '.deputados__item';
+var sear = "#procurar";
 
-  $('#procurar').on('input', function(){
+//mobile
+var depuM = '.deputados__item__mobile';
+var searM = "#searchMobile";
+
+
+//busca dinamica deputados
+function listaDeputados(cssDeputados, searchId, mobile=false){
+  var deputados = $(cssDeputados);
+  var search = $(searchId)[0];
+
+  $(searchId).on('input', function(){
+    console.log(search.value);
     $(deputados).parent().css('display', 'none');
     var exp = new RegExp(search.value, 'i');
     for(var j = 0; j < deputados.length; j++){
@@ -139,4 +149,25 @@ var listaDeputados = (function(){
       }
     }
   });
-})();
+}
+
+listaDeputados(depuM, searM);
+listaDeputados(depu, sear);
+
+
+$("#searchMobile").on('focus', function(){
+
+  if( !$('#navbarMobDeputado').hasClass('show')  ){
+    $('#navbarMobDeputado').addClass('show')
+    $('#navbarMobDeputado').addClass('collapsed');
+  }  
+});
+
+$("#searchMobile").on('blur', function(){
+  $('.deputados-mobile button').click();
+
+  if( !$('#searchMobile').val() == "" ){
+    $('#navbarMobDeputado').removeClass('show');
+    $('#navbarMobDeputado').removeClass('collapsed');
+  }  
+});
