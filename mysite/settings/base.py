@@ -85,7 +85,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 PIPELINE = {
-    'PIPELINE_ENABLED': True,
     'STYLESHEETS': {
         'colors': {
             'source_filenames': (
@@ -123,6 +122,5 @@ STATIC_URL = '/static/'
 
 #MEDIA_ROOT = '/media/'
 #MEDIA_URL = ''
-
 
 django_heroku.settings(locals())
