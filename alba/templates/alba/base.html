@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{% static 'imagens/icon.jpeg' %}">
     <title>{% block title %}Deputados da Bahia{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
@@ -21,7 +22,7 @@
 <body class="container-fluid">
     <div class="row">
     {% include 'aside.html' %}
-        <div class="col-sm-11 col-lg-10" id="principal">
+        <div class="col-xs-11 col-sm-11 col-lg-10" id="principal">
         <header>
           {% include 'navbar.html' %}
           {% include 'menu-mobile.html' %}

@@ -6,7 +6,7 @@ SECRET_KEY = '6inbnsa4z7zfl^1e7af1+w4pnri+rufkf!mr7tug)vtyl!oi43'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.109']
+ALLOWED_HOSTS = ['192.168.1.109', '192.168.1.102']
 
 INTERNAL_IPS = ['127.0.0.1']    
 

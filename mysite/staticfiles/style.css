@@ -8,6 +8,7 @@ body {
   padding-left: 0;
   padding-right: 0;
   transition: 0.2s linear;
+  z-index: 100;
 }
 
 header nav.navbar {
@@ -80,6 +81,10 @@ header nav.navbar.deputados-mobile {
   color: #fff;
 }
 
+.deputados-mobile ::placeholder {
+  color: #fff;
+}
+
 .deputados-mobile .navbar-toggler {
   color: rgba(250, 250, 250, 0.5);
   border: 1px solid rgba(250, 250, 250, 0.8);
@@ -93,6 +98,12 @@ header nav.navbar.deputados-mobile {
   padding-left: 15px;
   padding-bottom: 3px;
   padding-top: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .deputados__item {
+    display: none;
+  }
 }
 
 #navbarMobDeputado ul a,
@@ -139,6 +150,7 @@ a .deputados__item__mobile {
 
 main {
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 aside ul {
@@ -205,7 +217,6 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 
 .header-main.row {
   padding-top: 20px;
-  width: 100%;
 }
 
 .header-main__wrap__graficos {
@@ -228,6 +239,12 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   float: left;
   width: 90%;
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .deputado-foto img {
+    width: 100%;
+  }
 }
 
 .deputado-informacoes {
@@ -390,6 +407,10 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   margin-top: 30px;
 }
 
+.cards-gastos .gastos-titulo {
+  margin-bottom: 30px;
+}
+
 .cards-gastos .gastos-titulo h2 {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 24px;
@@ -434,6 +455,22 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 .body-card-gastos .row {
   float: left;
   width: 100%;
+}
+
+@media (max-width: 992px) {
+  .body-card-gastos .row {
+    width: unset;
+  }
+}
+
+.body-card-gastos .card {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .body-card-gastos .card {
+    margin-bottom: 20px;
+  }
 }
 
 .body-card-gastos .card-body {
@@ -534,9 +571,13 @@ input#procurar:not(:placeholder-shown) + .fa-search {
   bottom: 0;
 }
 
+.aside-logo {
+  margin-top: 15px;
+}
+
 .aside-logo__el {
   margin-left: 15px;
-  margin-top: 15px;
+  margin-top: 0;
 }
 
 .aside-logo__el a {
@@ -574,5 +615,34 @@ input#procurar:not(:placeholder-shown) + .fa-search {
 
 .deputados-mobile ::-webkit-scrollbar {
   background-color: #4e5c73;
+}
+
+@media (max-width: 991px) {
+  .aside-logo__el .desktop {
+    display: none;
+  }
+}
+
+.aside-logo__el .mobile {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .aside-logo__el .mobile {
+    display: block;
+  }
+}
+
+.expand-menu {
+  background-color: #1D2532;
+  transition: 0.5s width ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .expand-menu {
+    width: 64px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
