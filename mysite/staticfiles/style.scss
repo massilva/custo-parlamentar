@@ -94,9 +94,8 @@ header nav.navbar.deputados-mobile{
     border: unset;
     border-bottom: solid 1px #5B6779;
     border-radius: 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
-    margin-left: 15px;
     padding-left: 0;
     padding-right: 0;
     color: #fff;
@@ -121,11 +120,15 @@ header nav.navbar.deputados-mobile{
 #deputados ul a {
     width: 100%;
     display: block;
-    padding: 5px 0px;
+    padding: 5px 0;
+
+    @media(max-width:767px){
+        padding: 10px 0;
+    }
 }
 
 #navbarMobDeputado.show{
-    height: 100px;
+    height: 120px;
     overflow-y: scroll;
 }
 
@@ -139,6 +142,10 @@ a .deputados__item__mobile {
     font-weight: $semi-bold;
     color: $branco;
     font-size: 14px;
+
+    @media(max-width:767px){
+        font-size: 16px;
+    }
 }
 
 #deputados ul a:hover {
@@ -575,5 +582,5 @@ input#procurar:not(:placeholder-shown)+.fa-search {
 }
 
 .deputados-mobile ::-webkit-scrollbar {
-    background-color: #fff;
+    background-color:#4e5c73;
 }
