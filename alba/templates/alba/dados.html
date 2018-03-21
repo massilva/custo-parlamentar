@@ -79,11 +79,15 @@
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="card-body">
-                      {% if gasto_atual.hospedagem_locomocao != 'None' %}
-                        <h3>R$ <span> {{ gasto_atual.hospedagem_locomocao }}</span></h3>
-                      {% else %}  
-                        <h3>NADA</h3>
-                      {% endif %}
+                      <h3>R$ 
+                          <span> 
+                            {% if gasto_atual.hospedagem_locomocao != 'None' %}
+                            {{ gasto_atual.hospedagem_locomocao }}
+                            {% else %}  
+                            0
+                            {% endif %}
+                          </span>
+                        </h3>
                         <p class="hospedagem">HOSPEDAGEM</p>
                       
                   </div>
@@ -95,11 +99,15 @@
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="card-body">
-                      {% if gasto_atual.locacao_software != "None" %}
-                        <h3>R$ <span>{{ gasto_atual.locacao_software }}</span></h3>
-                      {% else %}  
-                        <h3>NADA</h3>
-                      {% endif %}
+                        <h3>R$ 
+                          <span>
+                            {% if gasto_atual.locacao_software != "None" %} 
+                            {{ gasto_atual.locacao_software }}
+                            {% else %}  
+                            R$ 0
+                            {% endif %}
+                          </span>
+                        </h3>
                         <p class="telefone">TELEFONE</p>
                   </div>
                     <div class="card-header">
@@ -110,11 +118,15 @@
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="card-body">
-                      {% if gasto_atual.consultoria != 'None' %}
-                        <h3>R$ <span>6666,66{{ gasto_atual.consultoria }}</span></h3>
-                      {% else %}
-                        <h3>NADA</h3>
-                      {% endif %}
+                      <h3>R$ 
+                        <span>
+                        {% if gasto_atual.consultoria != 'None' %}
+                        {{ gasto_atual.consultoria }}
+                        {% else %}
+                        0
+                        {% endif %}
+                        </span>
+                      </h3>
                         <p class="consultoria">CONSULTORIA</p>
                   </div>
                     <div class="card-header">
@@ -124,9 +136,17 @@
            </div>
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
-                  <div class="card-body">                      
-                        <h3>R$ 66666,666</h3>
-                        <p class="reembolsado">TOTAL REEMBOLSADO</p>
+                  <div class="card-body">
+                      <h3>R$ 
+                        <span>
+                          {% if gasto_atual.material_expediente != 'None' %}                      
+                          {{ gasto_atual.material_expedient }}
+                          {% else %}
+                          0
+                          {% endif %}
+                        </span>
+                        </h3>
+                      <p class="reembolsado">MATERIAL DE EXPEDIENTE</p>
                   </div>
                     <div class="card-header">
                          <span class="badge"><i class="fa fa-plus"></i></span>
@@ -136,11 +156,15 @@
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="card-body">
+                      <h3>R$ 
+                        <span>
                       {% if gasto_atual.divulgacao != 'None' %}
-                        <h3>R$ <span>6666,66{{ gasto_atual.divulgacao }}</span></h3>
+                      {{ gasto_atual.divulgacao }}
                       {% else %}
-                        <h3>Nada</h3>
+                      0
                       {% endif %}
+                        </span>
+                      </h3>
                         <p class="divulgacao">DIVULGAÇÃO</p>
                   </div>
                     <div class="card-header">
@@ -151,8 +175,17 @@
            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="card-body">
-                        <h3>R$ <span>6666,66{{ total }}</span></h3>
-                        <p class="declarado">TOTAL DECLARADO</p>
+                    
+                    <h3>R$ 
+                      <span>
+                      {% if gasto_atual.aluguel_imoveis != 'None' %}
+                      {{ gasto_atual.aluguel_imoveis }}
+                      {% else %}
+                      0
+                      {% endif %}
+                    </span>
+                  </h3>
+                    <p class="declarado">ALUGUEL DE IMÓVEIS</p>
                   </div>
                     <div class="card-header">
                          <span class="badge"><i class="fa fa-plus"></i></span>

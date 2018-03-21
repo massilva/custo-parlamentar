@@ -76,7 +76,6 @@ def IndexView(request, slug='', ano='', mes=''):
             if mes == '':
                 mes = data_mais_recente['mes']    
             gastos = retorna_gastos(id_do_deputado, ano, mes)
-            print(gastos['gasto_atual'])
             context['gasto_atual'] = gastos['gasto_atual']
             context['gastos'] = gastos['gastos']
             
