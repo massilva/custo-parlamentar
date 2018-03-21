@@ -122,5 +122,4 @@ STATIC_URL = '/static/'
 
 #MEDIA_ROOT = '/media/'
 #MEDIA_URL = ''
-ALLOWED_HOSTS = ['www.interface.jor.br', 'deputados-da-bahia.herokuapp.com']
 django_heroku.settings(locals())
