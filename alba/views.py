@@ -77,7 +77,7 @@ def IndexView(request, slug='', ano='', mes=''):
             context['deputado_atual'] = deputado_atual
     except Exception as e:
         deputado_atual = 'Alba'
-
+    
     try:
         print('===========a===========')
         if slug != 'favicon.ico' and Deputados.objects.get(slug=slug):  
