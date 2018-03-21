@@ -79,6 +79,7 @@ def IndexView(request, slug='', ano='', mes=''):
         deputado_atual = 'Alba'
 
     try:
+        print('===========a===========')
         if slug != 'favicon.ico' and Deputados.objects.get(slug=slug):  
             data_mais_recente = gasto_mais_recente(id_do_deputado)
             if ano == '':
