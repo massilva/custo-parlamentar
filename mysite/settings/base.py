@@ -122,5 +122,5 @@ STATIC_URL = '/static/'
 
 #MEDIA_ROOT = '/media/'
 #MEDIA_URL = ''
-
+ALLOWED_HOSTS = ['www.interface.jor.br']
 django_heroku.settings(locals())
