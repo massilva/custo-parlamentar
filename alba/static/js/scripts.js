@@ -55,6 +55,7 @@ var myScope = (function(){
       var cookieValue = null;
       if (document.cookie && document.cookie !== '') {
           var cookies = document.cookie.split(';');
+          console.log(cookies);
           for (var i = 0; i < cookies.length; i++) {
               var cookie = jQuery.trim(cookies[i]);
               // Does this cookie string begin with the name we want?
@@ -64,9 +65,11 @@ var myScope = (function(){
               }
           }
         }
+        console.log('cookievalue'+ cookieValue);
         return cookieValue;
     }
     var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken); 
     function csrfSafeMethod(method) {
       // these HTTP methods do not require CSRF protection
       return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -89,8 +92,9 @@ var myScope = (function(){
             }
         },
         success: function(response){
+          console.log(response['gastos']);
           $('.wrapper-load-graficos').removeClass('loading');
-          charts(response, ano);
+          charts(response['gastos'], ano);
         },
         error: function(response){
           console.log(response);

@@ -67,7 +67,7 @@
 <div class="cards-gastos">
     <div class="header-gastos">
         <div class="gastos-titulo">
-            <h2>Maio de 2016</h2>
+            <h2>{{ mes|date:"F" }} de {{ ano }}</h2>
             <div class="navigation-months">
                 <div class="badge"><i class="fa fa-caret-left"></i></div>
                 <div class="badge"><i class="fa fa-caret-right"></i></div>
@@ -104,7 +104,7 @@
                             {% if gasto_atual.locacao_software != "None" %} 
                             {{ gasto_atual.locacao_software }}
                             {% else %}  
-                            R$ 0
+                            0
                             {% endif %}
                           </span>
                         </h3>

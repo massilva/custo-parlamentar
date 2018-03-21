@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Max
 from .models import Deputados, GastoMensal, Categorias
+from django.views.decorators.csrf import ensure_csrf_cookie
 import time
+import datetime
 import os
 
 
@@ -45,17 +47,25 @@ def retorna_gastos(id_deputado, ano, mes):
     
     return context
 
-def DadosDeputadoView(request):
+
+def DadosDeputadoView(request, mes=""):
     try:
         slug_deputado = request.POST.get('slug_deputado')
         ano = request.POST.get('ano')
+        id_do_deputado = Deputados.objects.get(slug=slug_deputado).id_deputado    
     except Exception as e:
         print('aca')
         print(e)
         return HttpResponse('Não foi possível salvar informações.', status=401)
-    gastos = retorna_gastos(slug_deputado, ano)
+    data_mais_recente = gasto_mais_recente(id_do_deputado)
 
-    return JsonResponse(gastos['gastos'])
+    if ano == '':
+        ano = data_mais_recente['ano']
+    if mes == '':
+        mes = data_mais_recente['mes']    
+    gastos = retorna_gastos(id_do_deputado, ano, mes)
+    print(gastos)
+    return JsonResponse(gastos)    
 
 def IndexView(request, slug='', ano='', mes=''):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
@@ -76,10 +86,15 @@ def IndexView(request, slug='', ano='', mes=''):
             if mes == '':
                 mes = data_mais_recente['mes']    
             gastos = retorna_gastos(id_do_deputado, ano, mes)
+            
+            context['mes'] = datetime.datetime.strptime(str(mes), "%m").date()
+            print(context['mes'])
+            context['ano'] = ano
             context['gasto_atual'] = gastos['gasto_atual']
             context['gastos'] = gastos['gastos']
             
     except Exception as e:
+        print(e)
         print('aqui')
 
     return render(request, 'index.html', context)
