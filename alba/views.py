@@ -77,7 +77,7 @@ def IndexView(request, slug='', ano='', mes=''):
             context['deputado_atual'] = deputado_atual
     except Exception as e:
         deputado_atual = 'Alba'
-    
+
     try:
         print('===========a===========')
         if slug != 'favicon.ico' and Deputados.objects.get(slug=slug):  
@@ -86,10 +86,22 @@ def IndexView(request, slug='', ano='', mes=''):
                 ano = data_mais_recente['ano']
             if mes == '':
                 mes = data_mais_recente['mes']    
+            print('===========a===========')
+            print(ano)
+            print('===========a===========')
+            print(mes)
+            print('''
+            
+            
+            
+            
+            
+            
+            ''')
             gastos = retorna_gastos(id_do_deputado, ano, mes)
             
             context['mes'] = datetime.datetime.strptime(str(mes), "%m").date()
-            print(context['mes'])
+            print(context)
             context['ano'] = ano
             context['gasto_atual'] = gastos['gasto_atual']
             context['gastos'] = gastos['gastos']

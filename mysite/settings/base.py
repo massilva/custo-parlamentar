@@ -17,6 +17,8 @@ INSTALLED_APPS = [
     'pipeline'
 ]
 
+print('-ººº---++---ººº-')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
