@@ -5,32 +5,36 @@
     <div class="header-main__wrap__graficos__header">
         <div class="header-main__wrap__graficos__header__el">
           <div class="dropdown">
-            <input type="hidden" name="gastos-mes" id="gastos_deputado" value={{ gastos }}>
+
+            <input type="hidden" name="gastos-mes" id="gastos_deputado" value="">
+            <script>
+            var dados = {{ gastos|safe }};
+            </script>
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="categoria-atual" data-categoria='13'>Categoria</span>
+              <span class="categoria-atual">Categoria</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <div class="dropdown-item" data-categoria="10" id="imoveis">
+              <div class="dropdown-item" id="imoveis">
                 <span class="dropdown-menu__item__title">Imóveis</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" data-categoria="11" id="expediente">
+              <div class="dropdown-item" id="expediente">
                 <span class="dropdown-menu__item__title">Material de Expediente</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" data-categoria="12" id="software">
+              <div class="dropdown-item" id="software">
                 <span class="dropdown-menu__item__title">Software; Serviços; Móveis; Telefones</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" data-categoria="13" id="consultorias">
+              <div class="dropdown-item" id="consultorias">
                 <span class="dropdown-menu__item__title">Consultorias, assessorias, pesquisas e trabalhos técnicos</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" data-categoria="14" id="divulgacao">
+              <div class="dropdown-item" id="divulgacao">
                 <span class="dropdown-menu__item__title">Divulgação</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" data-categoria="15" id="locomocao">
+              <div class="dropdown-item" id="locomocao">
                 <span class="dropdown-menu__item__title">Locomoção, hospedagem</span>
                 <span class="fa fa-caret-down"></span>
               </div>

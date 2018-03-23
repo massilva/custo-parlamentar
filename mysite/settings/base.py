@@ -17,9 +17,6 @@ INSTALLED_APPS = [
     'pipeline'
 ]
 
-print('-ººº---++---ººº-')
-
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -104,7 +101,8 @@ PIPELINE = {
               'js/jquery-3.2.1.min.js',
               'js/popper.min.js',
               'js/bootstrap.min.js',
-              'js/scripts.js'
+              'js/scripts.js',
+              'js/charts.js'
             ),
             'output_filename': 'js/stats.js',
         }

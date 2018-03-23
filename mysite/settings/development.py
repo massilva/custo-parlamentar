@@ -14,7 +14,7 @@ DATABASES = {
         'PORT': os.environ.get('DATABASE_PORT', '')
     }
 }    
-print('----++----')
+
 DEBUG = True
 
 #INTERNAL_IPS = ['127.0.0.1']    
