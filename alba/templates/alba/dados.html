@@ -6,7 +6,8 @@
         <div class="header-main__wrap__graficos__header__el">
           <div class="dropdown">
 
-            <input type="hidden" name="gastos-mes" id="gastos_deputado" value="">
+            <!-- <input type="hidden" name="gastos-mes" id="gastos_deputado"> -->
+            <div id="gastos_deputado" style="display:none" data-dados="{{gastos|safe}}"></div>
             <script>
             var dados = {{ gastos|safe }};
             </script>
@@ -14,27 +15,27 @@
               <span class="categoria-atual">Categoria</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <div class="dropdown-item" id="imoveis">
+              <div class="dropdown-item" data-categoria="10">
                 <span class="dropdown-menu__item__title">Imóveis</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" id="expediente">
+              <div class="dropdown-item" data-categoria="11">
                 <span class="dropdown-menu__item__title">Material de Expediente</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" id="software">
+              <div class="dropdown-item" data-categoria="12">
                 <span class="dropdown-menu__item__title">Software; Serviços; Móveis; Telefones</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" id="consultorias">
+              <div class="dropdown-item" data-categoria="13">
                 <span class="dropdown-menu__item__title">Consultorias, assessorias, pesquisas e trabalhos técnicos</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" id="divulgacao">
+              <div class="dropdown-item" data-categoria="14">
                 <span class="dropdown-menu__item__title">Divulgação</span>
                 <span class="fa fa-caret-down"></span>
               </div>
-              <div class="dropdown-item" id="locomocao">
+              <div class="dropdown-item" data-categoria="15">
                 <span class="dropdown-menu__item__title">Locomoção, hospedagem</span>
                 <span class="fa fa-caret-down"></span>
               </div>
@@ -47,17 +48,17 @@
             <span class="anos-line"></span>
             <span class="anos-line"></span>
             <span class="anos-line"></span>
-            <span id="2007" class="badge badge-pill">2007</span>
-            <span id="2008" class="badge badge-pill">2008</span>
-            <span id="2009" class="badge badge-pill">2009</span>
-            <span id="2010" class="badge badge-pill">2010</span>
-            <span id="2011" class="badge badge-pill">2011</span>
-            <span id="2012" class="badge badge-pill">2012</span>
-            <span id="2013" class="badge badge-pill">2013</span>
-            <span id="2014" class="badge badge-pill">2014</span>
-            <span id="2015" class="badge badge-pill">2015</span>
-            <span id="2016" class="badge badge-pill active">2016</span>
-            <span id="2017" class="badge badge-pill">2017</span>
+            <span data-ano="2007" class="badge badge-pill">2007</span>
+            <span data-ano="2008" class="badge badge-pill">2008</span>
+            <span data-ano="2009" class="badge badge-pill">2009</span>
+            <span data-ano="2010" class="badge badge-pill">2010</span>
+            <span data-ano="2011" class="badge badge-pill">2011</span>
+            <span data-ano="2012" class="badge badge-pill">2012</span>
+            <span data-ano="2013" class="badge badge-pill">2013</span>
+            <span data-ano="2014" class="badge badge-pill">2014</span>
+            <span data-ano="2015" class="badge badge-pill">2015</span>
+            <span data-ano="2016" class="badge badge-pill">2016</span>
+            <span data-ano="2017" class="badge badge-pill">2017</span>
         </div>
     </div>
     <div class="body-graficos">

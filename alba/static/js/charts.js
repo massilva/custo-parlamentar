@@ -1,8 +1,12 @@
 var myScope = (function(){
-  id_antiga = '';
-  var dados = $('#gastos_deputado').val();
-
-  console.log(dados);
+  var id_antiga = '';
+  var id_atual = 10;
+  if(typeof ano == 'undefined' ){
+    ano = new Date();
+    ano = ano.getFullYear();
+  }
+  //var dados = $('#gastos_deputado').val();
+  //console.log(dados);
   //canvas
   var canvas = d3.select('.wrapper-itens-graficos')
     .append('svg')
@@ -54,74 +58,90 @@ var myScope = (function(){
   
     $(function(){
       // dados ajax
-      function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-          }
-          return cookieValue;
-      }
-      var csrftoken = getCookie('csrftoken');
-      function csrfSafeMethod(method) {
-        // these HTTP methods do not require CSRF protection
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-      }
-  
-      reloadGraph = function(ano){
-        var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
-        var data_deputado = {'slug_deputado': slug_deputado, 'ano': ano};
-        var resultado = $.ajax({
-          type : "POST",
-          url: '/ajax/dadosdeputados',
-          cache : false,
-          data: data_deputado,
-          dataType: 'json',
-          contentType: "application/x-www-form-urlencoded",
-          beforeSend: function(xhr, settings) {
-            $('.wrapper-load-graficos').addClass('loading');
-              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
-              }
-          },
-          success: function(response){
-            $('.wrapper-load-graficos').removeClass('loading');
-            charts(response['gastos'], ano);
-          },
-          error: function(response){
-            $('.wrapper-load-graficos').removeClass('loading');
-          }
-        });
-      }
-  
       $('.anos > .badge-pill').click(
         function(){
-          reloadGraph($(this).attr('id'));
-          
+          var ano = $(this).data("ano");
+          charts(dados, ano, id_atual);
         }
       );
   
       // Categorias
       $('.dropdown-menu .dropdown-item')
-        .click(function(){         
-          var id_atual = $($(this).find('.dropdown-menu__item__title').parent()[0]).attr('id');
+        .click(function(){    
+          if(typeof id_atual == 'undefined' ){
+            var id_atual = 10;
+          }
+          var id_atual = $($(this).find('.dropdown-menu__item__title').parent()[0]).data("categoria");
           $('.categoria-atual').text($(this).find('.dropdown-menu__item__title').text());
           $('.categoria-atual').addClass(id_atual).removeClass(id_antiga);
           id_antiga = id_atual;
+          if(typeof ano == 'undefined' ){
+            var ano = new Date();
+            ano = ano.getFullYear();
+          }
+          charts(dados, ano, id_atual); 
         })
     });
   
-    function charts(data, ano){
-      console.log(data);
-      console.log(ano);
+    function charts(data, ano, categoria){
+      
+      var dados_selecionados = [];
+      for(var i = 1; i <=12; i++){
+        dados_selecionados.push(data[i][categoria]);
+      }
+      console.log(dados_selecionados);
+      // console.log(canvas);
+      // console.log(data);
+      // console.log(ano);
+      // console.log(categoria);
       var cat_10, cat_11, cat_12, cat_13, cat_14, cat_15;
     }
-  })();
+  })(dados);
   
+
+  // function getCookie(name) {
+  //   var cookieValue = null;
+  //   if (document.cookie && document.cookie !== '') {
+  //       var cookies = document.cookie.split(';');
+  //       for (var i = 0; i < cookies.length; i++) {
+  //           var cookie = jQuery.trim(cookies[i]);
+  //           // Does this cookie string begin with the name we want?
+  //           if (cookie.substring(0, name.length + 1) === (name + '=')) {
+  //               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+  //               break;
+  //           }
+  //       }
+  //     }
+  //     return cookieValue;
+  // }
+  // var csrftoken = getCookie('csrftoken');
+  // function csrfSafeMethod(method) {
+  //   // these HTTP methods do not require CSRF protection
+  //   return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  // }
+
+  // reloadGraph = function(ano){
+  //   var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
+  //   var data_deputado = {'slug_deputado': slug_deputado, 'ano': ano};
+  //   var resultado = $.ajax({
+  //     type : "POST",
+  //     url: '/ajax/dadosdeputados',
+  //     cache : false,
+  //     data: data_deputado,
+  //     dataType: 'json',
+  //     contentType: "application/x-www-form-urlencoded",
+  //     beforeSend: function(xhr, settings) {
+  //       $('.wrapper-load-graficos').addClass('loading');
+  //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+  //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+  //         }
+  //     },
+  //     success: function(response){
+  //       $('.wrapper-load-graficos').removeClass('loading');
+  //       charts(response['gastos'], ano);
+  //     },
+  //     error: function(response){
+  //       $('.wrapper-load-graficos').removeClass('loading');
+  //     }
+  //   });
+  // }
