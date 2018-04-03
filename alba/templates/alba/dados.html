@@ -7,9 +7,10 @@
           <div class="dropdown">
 
             <!-- <input type="hidden" name="gastos-mes" id="gastos_deputado"> -->
-            <div id="gastos_deputado" style="display:none" data-dados="{{gastos|safe}}"></div>
+            <div id="gastos_deputado" style="display:none" data-dados="{{gastos|safe}}" data-ano="{{ano}}"></div>
             <script>
             var dados = {{ gastos|safe }};
+            var year = {{ ano }};
             </script>
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="categoria-atual">Categoria</span>

@@ -88,7 +88,9 @@ def IndexView(request, slug="", ano="", mes=""):
             gastos = retorna_gastos(id_do_deputado, ano, mes)
             
             context["mes"] = datetime.datetime.strptime(str(mes), "%m").date()
-            print(context)
+            #print(context)
+            print("ANOOOOOOOOOOo")
+            print(ano)
             context["ano"] = ano
             context["gasto_atual"] = gastos["gasto_atual"]
             context["gastos"] = gastos["gastos"]
