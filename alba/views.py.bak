@@ -23,20 +23,7 @@ def gasto_mais_recente(deputado_id):
     
     return(data)
 
-def retorna_gastos(id_deputado, ano, mes):    
-    dados_brutos = {}
-    for ano in range(2007, 2018):
-        dados_brutos[str(ano)] = {}
-        for mes in range(1, 13):
-            dados_brutos[str(ano)][str(mes)] = {}
-            for cat in range(10, 16):
-                dados_brutos[str(ano)][str(mes)][str(cat)] = {}
-
-    for gasto in GastoMensal.objects.filter(id_deputado=id_deputado):
-        dados_brutos[str(gasto.ano)][str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
-
-
-
+def retorna_gastos(id_deputado, ano, mes):
     dados = GastoMensal.objects.filter(ano=str(ano), id_deputado=id_deputado)
     gastos = {"1": {}, "2": {}, "3": {}, "4": {}, "5": {}, "6": {}, "7": {}, "8": {}, "9": {}, "10": {}, "11": {}, "12": {}}
 
@@ -56,7 +43,7 @@ def retorna_gastos(id_deputado, ano, mes):
     divulgacao = gastos[str(mes)]["14"]
     hospedagem_locomocao = gastos[str(mes)]["15"]
 
-    context = {"dados_brutos": dados_brutos, "gastos": gastos, "gasto_atual": {"aluguel_imoveis": aluguel_imoveis, "material_expediente": material_expediente, "locacao_software": locacao_software, "consultoria": consultoria, "divulgacao": divulgacao, "hospedagem_locomocao": hospedagem_locomocao}}
+    context = {"gastos": gastos, "gasto_atual": {"aluguel_imoveis": aluguel_imoveis, "material_expediente": material_expediente, "locacao_software": locacao_software, "consultoria": consultoria, "divulgacao": divulgacao, "hospedagem_locomocao": hospedagem_locomocao}}
     
     return context
 
@@ -67,6 +54,7 @@ def DadosDeputadoView(request, mes=""):
         ano = request.POST.get("ano")
         id_do_deputado = Deputados.objects.get(slug=slug_deputado).id_deputado    
     except Exception as e:
+        print("aca")
         print(e)
         return HttpResponse("Não foi possível salvar informações.", status=401)
     data_mais_recente = gasto_mais_recente(id_do_deputado)
@@ -76,8 +64,8 @@ def DadosDeputadoView(request, mes=""):
     if mes == "":
         mes = data_mais_recente["mes"]    
     gastos = retorna_gastos(id_do_deputado, ano, mes)
-    
-    return JsonResponse(gastos['dados_brutos'])    
+    print(gastos)
+    return JsonResponse(gastos)    
 
 def IndexView(request, slug="", ano="", mes=""):
     todos_deputados = Deputados.objects.all().exclude(mandato_atual=False)
@@ -98,12 +86,17 @@ def IndexView(request, slug="", ano="", mes=""):
             if mes == "":
                 mes = data_mais_recente["mes"]  
             gastos = retorna_gastos(id_do_deputado, ano, mes)
-
+            
+            context["mes"] = datetime.datetime.strptime(str(mes), "%m").date()
+            #print(context)
+            print("ANOOOOOOOOOOo")
+            print(ano)
             context["ano"] = ano
             context["gasto_atual"] = gastos["gasto_atual"]
             context["gastos"] = gastos["gastos"]
-        
+            
     except Exception as e:
         print(e)
+        print("aqui")
 
     return render(request, "index.html", context)

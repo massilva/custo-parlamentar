@@ -15,6 +15,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
 var csrftoken = getCookie('csrftoken');
 function csrfSafeMethod(method) {
   //these HTTP methods do not require CSRF protection
@@ -22,7 +23,7 @@ function csrfSafeMethod(method) {
 }
 
 var scopeGraph = (function(){
-  var ano = $('#gastos_deputado').data('ano');
+  //var ano = $('#gastos_deputado').data('ano');
   var id_antiga = '';
   var id_atual = 10;
   if(typeof ano == 'undefined' ){
@@ -61,8 +62,6 @@ var scopeGraph = (function(){
     });
 
   function desenhaChart(dados_utilizados){
-
-    console.log(dados_utilizados);
   
     var yScale = d3.scaleLinear()
       .domain([0, d3.max(dados_utilizados)])
@@ -90,72 +89,49 @@ var scopeGraph = (function(){
         }
   }
   
-    canvas = desenhaChart(dados_placeholder);
+  canvas = desenhaChart(dados_placeholder);
   
   $(function(){
 
-      function reloadGraph(ano){
-        var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
-        var data_deputado = {'slug_deputado': slug_deputado, 'ano': ano};
-        var resultado = $.ajax({
-          type : "POST",
-          url: '/ajax/dadosdeputados',
-          cache : false,
-          data: data_deputado,
-          dataType: 'json',
-          contentType: "application/x-www-form-urlencoded",
-          beforeSend: function(xhr, settings) {
-            $('.wrapper-load-graficos').addClass('loading');
-              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
-              }
-          },
-          success: function(response){
-            $('.wrapper-load-graficos').removeClass('loading');
-            // console.log(response['gastos']);
-            // //charts(response['gastos'], ano);
-            // console.log('ano');
-            // console.log(ano);
-            charts(response['gastos'], ano, id_atual); 
-          },
-          error: function(response){
-            $('.wrapper-load-graficos').removeClass('loading');
-          }
-        });
-      }
 
-      // dados ajax
-      $('.anos > .badge-pill')
-        .click(function(e, ano){
-            console.log('anoooo');
-            console.log(ano);
-            var ano = $(this).data("ano");
-            reloadGraph(ano);
-          }
-        );
-  
-      // Categorias
-      $('.dropdown-menu .dropdown-item')
-        .click(function(e, ano){ 
-          // console.log(ano);
-          if(typeof id_atual == 'undefined' ){
-            var id_atual = 10;
-          }
-          var id_atual = $($(this).find('.dropdown-menu__item__title').parent()[0]).data("categoria");
-          $('.categoria-atual').text($(this).find('.dropdown-menu__item__title').text());
-          $('.categoria-atual').addClass(id_atual).removeClass(id_antiga);
-          id_antiga = id_atual;
-          if(typeof ano == 'undefined' ){
-            var ano = new Date();
-            ano = ano.getFullYear();
-            // var ano = 2017;
-          }
-          charts(dados, ano, id_atual); 
-        })
-    });
+      function dataGraphs(f){
+        var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
+
+        $.ajax({
+            type : "POST",
+            url: '/ajax/dadosdeputados',
+            cache : false,
+            data: {'slug_deputado': slug_deputado, 'ano': ano},
+            dataType: 'json',
+            contentType: "application/x-www-form-urlencoded",
+            beforeSend: function(xhr, settings) {
+              $('.wrapper-load-graficos').addClass('loading');
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            },
+            success: function(response){
+              $('.wrapper-load-graficos').removeClass('loading');
+
+              f['dados_brutos'] = response;
+            },
+            error: function(response){
+              $('.wrapper-load-graficos').removeClass('loading');
+            }
+          })
+
+        }
+
+      $(document).ready(function(){
+        var f = {};
+        console.log(f);
+        dataGraphs(f);
+        console.log(f);
+      });
+
+    })();
      
     function charts(data, ano, categoria){
-      console.log("Data: "+ dados + " Ano:" + ano + " Categoria: "+ categoria);
       var dados_selecionados = [];
       for(var i = 1; i <=12; i++){
         data[i][categoria] == 'None'? dados_selecionados.push(0) : dados_selecionados.push(parseFloat(data[i][categoria]));
@@ -170,4 +146,8 @@ var scopeGraph = (function(){
   })(dados, year);
   
 
-    
+  
+  
+function desenhaChart(ano, categoria){
+  var ano = parseInt(ano), categoria = parseInt(categoria);
+}
