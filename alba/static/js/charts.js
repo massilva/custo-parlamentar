@@ -50,10 +50,14 @@ function desenhaChart(dados){
     .enter()
     .append('g')
       .attr('class', 'grupo-bar');
+  
+  var yScale = d3.scaleLinear()
+    .domain([0, d3.max(dados)])
+    .range([0, ((height - 40 ) * 0.95)]); 
 
-    grupo_bar
+  grupo_bar
     .append('rect')
-    .attr('class', 'wrapper-chart')
+      .attr('class', 'wrapper-chart')
       .attr('fill', '#DFECF4')
       .attr('width', '25px')
       .attr('height', function(){
@@ -61,34 +65,61 @@ function desenhaChart(dados){
       })
       .attr('x', function(d, i){
         return ((i+1) * (canvas_width / 12) - (canvas_width / 12));
+      })
+  grupo_bar
+    .append('rect')
+      .attr('class', 'data-chart')
+      .attr('width', '25px')
+      .attr('fill', '#818EA7')
+      .attr('rx','5')
+      .attr('height', 20)
+      .attr('y', function(){
+        return canvas_height - 20;
+      })
+      .attr('x', function(d, i){
+        return ((i+1) * (canvas_width / 12) -  (canvas_width / 12));
       });
 
+
+  // var adicionaGraph = grupo_bar
+  //   .append('rect')
+  //   .attr('class', 'data-chart')
+  //   .attr('width', '25px')
+  //   .attr('fill', '#818EA7')
+  //   .attr('rx','5')
+  //   .attr('height', function(d, i){
+  //     return yScale(d);
+  //   })
+  //   .attr('y', function(d){
+  //     return canvas_height - 10 - yScale(d);
+  //   })
+  //   .attr('x', function(d, i){
+  //     return ((i+1) * (canvas_width / 12) -  (canvas_width / 12));
+  //   })
+  //   .attr('data-title', function(d){
+  //     return(d);
+  //   });
+
+  // $('[data-title]').parent().hover(function(){
+  //   console.log( $(this).find('[data-title]').data('title') );
+  // });
+}
+
+function updateChart(dados){
+
+  var dadosMentirinha = [50, 60, 34, 56, 78, 12, 90, 43, 56, 76, 60, 54];
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(dados)])
+    .domain([0, d3.max(dadosMentirinha)])
     .range([0, ((height - 40 ) * 0.95)]); 
 
-  var adicionaGraph = grupo_bar
-    .append('rect')
-    .attr('class', 'data-chart')
-    .attr('width', '25px')
-    .attr('fill', '#818EA7')
-    .attr('rx','5')
-    .attr('height', function(d, i){
-      return yScale(d);
-    })
-    .attr('y', function(d){
-      return canvas_height - 10 - yScale(d);
-    })
-    .attr('x', function(d, i){
-      return ((i+1) * (canvas_width / 12) -  (canvas_width / 12));
-    })
-    .attr('data-title', function(d){
-      return(d);
-    });
+  var graficos = d3.selectAll('.data-chart').transition().duration(5000);
 
-  $('[data-title]').parent().hover(function(){
-    console.log( $(this).find('[data-title]').data('title') );
-  });
+  graficos.attr('height', function(d, i){
+    return yScale(d);
+  })
+  
+  console.log(dados);
+
 }
 
 function getData(){
@@ -110,13 +141,15 @@ function getData(){
   });
 }
 
-$(document).ready(function(){
+//get data to init graph
+var cat = 10;
+var ano = new Date();
+ano = ano.getFullYear() - 1;
+var dadosBrutos;
+$(document).ready(function(){  
   getData()
-    .done( function(data){
-      var dadosBrutos = data;
-      var ano = 2017;
-      var cat = 10;
-      treatData(dadosBrutos, ano, cat);
+    .done( function(data){      
+      dadosBrutos = treatData(data, ano, cat);
       $('.header-main__wrap__load').removeClass('loading');
     })
     .fail( function(data){
@@ -125,12 +158,20 @@ $(document).ready(function(){
 
 });
   
-function treatData(dadosBrutos, ano, cat){
+function treatData(data, ano, cat){
   var dadosSelecionados = [];
   for(var i = 1; i <= 12; i++){
-    dadosBrutos[ano][i][cat] == 'None'? dadosSelecionados.push(0) : dadosSelecionados.push(parseInt(dadosBrutos[ano][i][cat]));
-  }
-  
+    data[ano][i][cat] == 'None'? dadosSelecionados.push(0) : dadosSelecionados.push(parseInt(data[ano][i][cat]));
+  }  
   desenhaChart(dadosSelecionados);
-
+  console.log(data);
+  return(data);
 }
+
+
+$('[data-ano]').click(function(dadosBrutos){
+  ano = $(this).data('ano');
+  console.log(dadosBrutos);
+  updateChart(dadosBrutos);
+  //treatData(dadosBrutos, ano, cat);  
+});
