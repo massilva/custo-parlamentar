@@ -81,7 +81,14 @@ function desenhaChart(dados){
     })
     .attr('x', function(d, i){
       return ((i+1) * (canvas_width / 12) -  (canvas_width / 12));
+    })
+    .attr('data-title', function(d){
+      return(d);
     });
+
+  $('[data-title]').parent().hover(function(){
+    console.log( $(this).find('[data-title]').data('title') );
+  });
 }
 
 function getData(){
@@ -114,7 +121,8 @@ $(document).ready(function(){
     })
     .fail( function(data){
       $('.header-main__wrap__load').removeClass('loading');
-    })
+    });
+
 });
   
 function treatData(dadosBrutos, ano, cat){
