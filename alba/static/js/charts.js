@@ -95,7 +95,7 @@ function getData(){
     dataType: 'json',
     contentType: "application/x-www-form-urlencoded",
     beforeSend: function(xhr, settings) {
-      $('.wrapper-load-graficos').addClass('loading');
+      $('.header-main__wrap__load').addClass('loading');
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
@@ -107,13 +107,13 @@ $(document).ready(function(){
   getData()
     .done( function(data){
       var dadosBrutos = data;
-      var ano = 2013;
-      var cat = 14;
+      var ano = 2017;
+      var cat = 10;
       treatData(dadosBrutos, ano, cat);
-      $('.wrapper-load-graficos').removeClass('loading');
+      $('.header-main__wrap__load').removeClass('loading');
     })
     .fail( function(data){
-      $('.wrapper-load-graficos').removeClass('loading');
+      $('.header-main__wrap__load').removeClass('loading');
     })
 });
   
