@@ -123,7 +123,15 @@ function updateChart(dados){
 }
 
 function getData(){
-  var slug_deputado = window.location.href.toString().split(window.location.host)[1].split('/')[1];
+
+  var slug_deputado, ano, url_processada;
+
+  url_processada = window.location.href.toString().split(window.location.host)[1].split('/');
+  slug_deputado = url_processada[1];
+
+  if (url_processada.length >= 2) {
+    ano = url_processada[2];
+  }
 
   return $.ajax({
     type : "POST",

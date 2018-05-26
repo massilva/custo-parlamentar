@@ -32,16 +32,16 @@ def retorna_gastos(id_deputado, ano, mes):
     numeros_categorias = range(10, 16)
     dados_brutos = {}
 
-    for ano in anos:
-        dados_brutos[str(ano)] = {}
-        for mes in meses:
-            dados_brutos[str(ano)][str(mes)] = {}
+    for _ano in anos:
+        dados_brutos[str(_ano)] = {}
+        for _mes in meses:
+            dados_brutos[str(_ano)][str(_mes)] = {}
             for cat in numeros_categorias:
-                dados_brutos[str(ano)][str(mes)][str(cat)] = {}
+                dados_brutos[str(_ano)][str(_mes)][str(cat)] = {}
 
     # Utiliza dict_comprehension
     # (https://python-reference.readthedocs.io/en/latest/docs/comprehensions/dict_comprehension.html)
-    gastos_mensal_por_categoria = { str(mes):{} for mes in meses }
+    gastos_mensal_por_categoria = { str(_mes):{} for _mes in meses }
 
     # Utiliza list_comprehension
     # (https://python-reference.readthedocs.io/en/latest/docs/comprehensions/list_comprehension.html)
@@ -52,9 +52,9 @@ def retorna_gastos(id_deputado, ano, mes):
             gastos_mensal_por_categoria[k][cat] = {}
 
     for gasto in GastoMensal.objects.filter(id_deputado=id_deputado):
-        dados_brutos[str(gasto.ano)][str(gasto.mes)][str(gasto.categoria.id_categoria)] = str(gasto.valor)
+        dados_brutos[str(gasto.ano)][str(gasto.mes)][str(gasto.categoria.id_categoria)] = str(gasto.valor) if gasto.valor else '0'
         if str(gasto.ano) == str(ano):
-            gastos_mensal_por_categoria[str(gasto.mes)][str(gasto.categoria.id_categoria)] = str(gasto.valor)
+            gastos_mensal_por_categoria[str(gasto.mes)][str(gasto.categoria.id_categoria)] = dados_brutos[str(gasto.ano)][str(gasto.mes)][str(gasto.categoria.id_categoria)]
 
     # Utiliza o unpacking (https://www.python.org/dev/peps/pep-3132/)
     aluguel_imoveis,\
@@ -90,6 +90,7 @@ def DadosDeputadoView(request, mes=""):
         return HttpResponse('Não foi possível salvar informações.', status=401)
 
     data_mais_recente = gasto_mais_recente(id_do_deputado)
+
     if not ano:
         ano = data_mais_recente['ano']
 
@@ -119,6 +120,7 @@ def IndexView(request, slug='', ano='', mes=''):
     try:
         print('===========a===========')
         if id_do_deputado:
+
 
             if not(ano) or not(mes):
 
