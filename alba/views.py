@@ -34,7 +34,7 @@ def retorna_gastos(id_deputado, ano, mes):
             gastos[k][cat] = {}
 
     for gasto in dados:
-        gastos[str(gasto.mes)][str(gasto.id_categoria.id_categoria)] = str(gasto.valor)
+        gastos[str(gasto.mes)][str(gasto.categoria.id_categoria)] = str(gasto.valor)
 
     aluguel_imoveis = gastos[str(mes)]['10']
     material_expediente = gastos[str(mes)]['11']

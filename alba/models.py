@@ -34,14 +34,14 @@ class Deputados(models.Model):
 class GastoMensal(models.Model):
     mes = models.IntegerField(primary_key=True)
     ano = models.IntegerField()
-    id_categoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='id_categoria')
+    categoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='id_categoria')
     valor = models.DecimalField(max_digits=65535, decimal_places=2, blank=True, null=True)
     id_deputado = models.IntegerField()
 
     class Meta:
         managed = False
         db_table = 'gasto_mensal'
-        unique_together = (('mes', 'ano', 'id_categoria', 'id_deputado'),)
+        unique_together = (('mes', 'ano', 'categoria', 'id_deputado'),)
 
 
 class Partidos(models.Model):
