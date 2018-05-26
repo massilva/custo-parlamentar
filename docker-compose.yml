@@ -1,0 +1,34 @@
+version: '2.0'
+services:
+  data:
+    command: 'true'
+    image: mdillon/postgis
+    restart: 'no'
+    volumes:
+      - /var/lib/postgresql
+  
+  postgres:
+    image: mdillon/postgis
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    restart: always
+    volumes_from:
+      - data
+    env_file: .var_env
+
+  web:
+    restart: always
+    build:
+      context: .
+    links:
+      - postgres:postgres
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    volumes:
+      - ./:/usr/src/app/
+    env_file: .var_env
+    command: python /usr/src/app/manage.py runserver 0.0.0.0:8000
