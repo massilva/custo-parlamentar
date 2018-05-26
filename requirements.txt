@@ -3,6 +3,7 @@ django-heroku==0.2.0
 pillow
 django-debug-toolbar
 psycopg2
+psycopg2-binary
 slugify
 gunicorn
 whitenoise

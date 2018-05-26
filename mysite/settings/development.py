@@ -13,11 +13,11 @@ DATABASES = {
         'HOST': os.environ.get('DATABASE_HOST', ''),
         'PORT': os.environ.get('DATABASE_PORT', '')
     }
-}    
+}
 
 DEBUG = True
 
-#INTERNAL_IPS = ['127.0.0.1']    
+#INTERNAL_IPS = ['127.0.0.1']
 if DEBUG == True:
     MIDDLEWARE +=(
         'debug_toolbar.middleware.DebugToolbarMiddleware',

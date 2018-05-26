@@ -41,7 +41,7 @@ var width = $('.wrapper-itens-graficos').innerWidth(),
     dados_placeholder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
     canvas_width = $('.wrapper-itens-graficos > svg').width(),
     canvas_height = $('.wrapper-itens-graficos > svg').height();
-    
+
 
 function desenhaChart(dados){
 
@@ -50,10 +50,10 @@ function desenhaChart(dados){
     .enter()
     .append('g')
       .attr('class', 'grupo-bar');
-  
+
   var yScale = d3.scaleLinear()
     .domain([0, d3.max(dados)])
-    .range([0, ((height - 40 ) * 0.95)]); 
+    .range([0, ((height - 40 ) * 0.95)]);
 
   grupo_bar
     .append('rect')
@@ -110,14 +110,14 @@ function updateChart(dados){
   var dadosMentirinha = [50, 60, 34, 56, 78, 12, 90, 43, 56, 76, 60, 54];
   var yScale = d3.scaleLinear()
     .domain([0, d3.max(dadosMentirinha)])
-    .range([0, ((height - 40 ) * 0.95)]); 
+    .range([0, ((height - 40 ) * 0.95)]);
 
   var graficos = d3.selectAll('.data-chart').transition().duration(5000);
 
   graficos.attr('height', function(d, i){
     return yScale(d);
   })
-  
+
   console.log(dados);
 
 }
@@ -146,10 +146,10 @@ var cat = 10;
 var ano = new Date();
 ano = ano.getFullYear() - 1;
 var dadosBrutos;
-$(document).ready(function(){  
+$(document).ready(function(){
   getData()
-    .done( function(data){      
-      dadosBrutos = treatData(data, ano, cat);
+    .done( function(data){
+      dadosBrutos = treatData(data['dados_brutos'], ano, cat);
       $('.header-main__wrap__load').removeClass('loading');
     })
     .fail( function(data){
@@ -157,12 +157,12 @@ $(document).ready(function(){
     });
 
 });
-  
+
 function treatData(data, ano, cat){
   var dadosSelecionados = [];
   for(var i = 1; i <= 12; i++){
     data[ano][i][cat] == 'None'? dadosSelecionados.push(0) : dadosSelecionados.push(parseInt(data[ano][i][cat]));
-  }  
+  }
   desenhaChart(dadosSelecionados);
   console.log(data);
   return(data);
@@ -173,5 +173,5 @@ $('[data-ano]').click(function(dadosBrutos){
   ano = $(this).data('ano');
   console.log(dadosBrutos);
   updateChart(dadosBrutos);
-  //treatData(dadosBrutos, ano, cat);  
+  //treatData(dadosBrutos, ano, cat);
 });
